@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilosgeneral.css">
+  <link rel="stylesheet" href="../css/listarfichatecnica.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+  <title>Listar ficha</title>
+</head>
+
+{{> header title="Listar fichas"}}
+
+
+<body>
+
+  <main>
+
+    <div class="search">
+
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">
+        <!-- Para modificar el tamaño del logo icono ".icono-search"  y para modificar la orientacion de este ".boton-search" -->
+        <button class="btn btn-outline-secondary boton-search" type="submit"><img
+            src="../img/search.ico" alt="search" class="icono-search"></button>
+      </form>
+
+
+    </div>
+    
+
+
+    <div class="">
+      <button type="button" class="btn btn-light btnagregar" id="btnAgregar" onclick="irAOtraVista()">+ Agregar</button>
+    </div>
+
+    <div class="container">
+
+      <div class="container2"> <!--Contenedor tipo encabezado, para el titulo-->
+
+        <h2 class="fontTtitle mt-3">Listado De Fichas Tecnicas</h2>
+
+        <table class="table table-orientacion">
+          <thead>
+            <tr>
+              <td scope="col">Id</td>
+              <td scope="col" class="camposListar">Nombre Del Producto</td>
+              <td scope="col" class="camposListar">Tallas</td>
+              <td scope="col" class="camposListar">Colores</td>
+              <td scope="col" class="camposListar">Estado</td>
+              <td scope="col" class="text-center camposListar">operaciones</td>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="datosListar">01</th>
+              <td class="datosListar">Camisa Antioqueña</td>
+              <td class="datosListar">S,M,L</td>
+              <td class="datosListar">Rojo</td>
+              <td class="datosListar">Activo</td>
+              <td class="icons">
+
+               
+
+
+                <!--BOTONES SIN LA MODAL, ASÍ SE USARÁN NORMALMENTE-->
+
+                <div> <a href="/editarfichatecnica"> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a href="/visualizarficha"> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="datosListar">02</th>
+              <td class="datosListar">Buso Base</td>
+              <td class="datosListar">L</td>
+              <td class="datosListar">Blanco</td>
+              <td class="datosListar">Activo</td>
+              <td class="icons">
+
+           
+                
+
+
+
+                <div> <a href=""> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a href=""> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a button type="button" class="btn"  data-bs-toggle="modal" data-bs-target="#modaleliminar"  > <img src="../img/delete.ico" alt=""
+                  class="iconos-listar" id="eliminar"></button>
+            </div></a></div>
+              </td>
+
+
+
+
+                     <!--modal para el eliminar-->
+          <div class="modal" tabindex="-1" id="modaleliminar">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmación</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="btnCancelar" onclick="realizarAccionCancelar()">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+            </tr>
+            <tr>
+              <th scope="row" class="datosListar">03</th>
+              <td class="datosListar">Camiseta Sin Cuello</td>
+              <td class="datosListar">L,M,Unica</td>
+              <td class="datosListar">Rojo</td>
+              <td class="datosListar">Activo</td>
+              <td class="icons">
+
+               
+                
+
+
+                <div> <a href=""> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a href=""> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+              </td>
+
+            </tr>
+
+            
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example" class="pag">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link">&laquo;</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">&raquo;</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="../js/validacionfichatecnica.js"></script>
+{{> footer }}
+</body>
+
+</html>

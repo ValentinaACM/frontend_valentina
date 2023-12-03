@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/ordenProduccion.css">
+    <title>Document</title>
+</head>
+
+<body class="bodybg">
+    {{> header title="Orden de Produccion"}}
+    <div class="container"> <!--Contenedor Padre-->
+
+
+        <form class="formularioInt">
+            <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+            <h1 class="textoh1">Crear Orden Producción</h1>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="mb-3 form-group">
+                        <label for="numPedido" class="form-label fontTtitle">Nro Orden</label>
+                        <input type="number" class="form-control" name="nombreCom" id="nombreCom">
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="fechaPedido" class="form-label fontTtitle">Fecha Compromiso</label>
+                        <input type="password" class="form-control" name="fechaPedido" id="fechaPedido">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Estado" class="form-label fontTtitle">Estado</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">En Proceso</option>
+                            <option value="2">Finalizado</option>
+                        </select>
+                    </div>
+
+                </div>
+                <!-- Tabla de productos asociados -->
+                <div class="col-md-12">
+
+                    <div class="form-group ">
+                        <label for="productos">Lista de Productos asociados:</label>
+                        <div class="input-group mb-3 w-50">
+                            <input type="text" class="form-control" placeholder="Buscar producto"
+                                aria-label="Buscar producto" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    id="button-addon2">Buscar</button>
+                            </div>
+                        </div>
+                        <table id="productos-table" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th colspan="2">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="form-control" placeholder="Ingrese un producto"
+                                            id="nombreProducto"></td>
+                                    <td><input type="number" class="form-control" placeholder="Cantidad"
+                                            id="cantidadProducto"></td>
+                                    <!-- Botones con las funciones-->
+                                    <td><button type="button" class="btn btn-sm text-danger"
+                                            onclick="eliminarproducto(this)"></button>Eliminar</button></td>
+                                    <td><button type="button" class="btn btn-primary"
+                                            onclick="agregarproducto()">Agregar producto</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- JavaScript para la tabla -->
+                        <script>
+                            function agregarproducto() {
+                                var producto = $('#nombreProducto').val();
+                                var cantidad = $('#cantidadProducto').val();
+                                //Función si para no permitir agregar productos vacíos
+                                if (producto && cantidad) {
+                                    // Agregar el producto a la tabla
+                                    var html = '<tr><td>' + producto + '</td><td>' + cantidad + '</td><td><button type="button" class="btn btn-sm text-danger" onclick="eliminarproducto(this)">Eliminar</button></td></tr>';
+                                    $('#productos-table tbody').append(html);
+
+                                    // Limpiar los campos después de agregar el producto
+                                    $('#nombreProducto').val('');
+                                    $('#cantidadProducto').val('');
+                                }
+                            }
+
+                            // Función para eliminar un producto de la tabla
+                            function eliminarproducto(btn) {
+                                // Obtener la fila padre del botón clickeado
+                                var row = $(btn).closest('tr');
+
+                                // Remover la fila específica que contiene la información del producto
+                                row.remove();
+                            }
+                        </script>
+
+                    </div>
+                    <button type="button" class="btn btnLimpiar">Limpiar</button>
+                    <button type="button" class="btn btnCancelar">Cancelar</button>
+                    <button type="button" class="btn btnGuardar" onclick="validarFormulario()">Guardar cambios</button>
+                </div>
+        </form>
+        {{> footer}}
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

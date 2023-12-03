@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/registrarInsumos.css">
+   <link rel="stylesheet" href="../css/validacionesmodulosJuan.css">
+   <link rel="stylesheet" href="../css/estilosgeneral.css">
+
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+    <title>Registrar Insumo</title>
+</head>
+<body class="bodybg">
+
+    {{> header title="Insumos"}}
+
+  
+ 
+    
+
+  <div class="container"> <!--Contenedor Padre-->
+
+
+    <form class="formularioInt">
+      <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+               <h1 class="textoh1">Registrar Insumo</h1>
+               <div class="row"> 
+             <div class="col-md-6">
+
+                     <div class="mb-2 form-group">
+                       <label for="nomInsumo" class="form-label fontTtitle">Nombre Insumo <span class="text-danger">*</span></label>
+                       <input type="text" class="form-control btnInput" name="nomInsumo" id="nomInsumo" oninput="validarNombreInsumo()">
+                       <div class="msj" id="mensajeError"></div>
+                     </div>
+
+                    <div class="mb-2 form-group">
+                      <label for=" medidaInsumo" class="form-label fontTtitle">Medidas Insumo <span class="text-danger">*</span></label>
+                     <input type="number" min="1"  class="form-control btnInput" name="medidaInsumo" id="medidaInsumo" oninput="validarMedidaInsumo()" required>
+                     <div id="mensajeErrorMedInsumo"></div> 
+                    </div>
+     
+
+                     <div class="mb-2 form-group">
+                       <label for="cantInsumo" class="form-label fontTtitle">Cantidad Insumo <span class="text-danger">*</span></label>
+                       <input type="number" min="1"  class="form-control btnInput" name="cantInsumo" id="cantInsumo">
+                       <div id="mensajeError"></div>
+                     </div>
+
+                     
+                     <div class="mb-2 form-group">
+                      <label for="nomCliente" class="form-label fontTtitle" >Valor Insumo <span class="text-danger">*</span></label>
+                      <input type="number" min="1"  class="form-control btnInput" id="nomCliente" placeholder="$">
+                      <div id="mensajeError"></div>
+                    </div>
+
+                    
+
+                    
+
+             </div> 
+             
+             
+
+             <div class="col-md-6">
+              
+              <div class="mb-2 form-group">
+                <label for="Estado" class="form-label fontTtitle">Categoría Insumo  <span class="text-danger">*</span></label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="1">Hilos</option>
+                  <option value="2">Telas</option>
+                  <option value="3">Textiles</option>
+                  <option value="4">Agujas</option>
+                </select>
+              </div>
+
+              
+               
+               <div class="mb-2 form-group">
+                <label for="Estado" class="form-label fontTtitle">Stock Máximo  <span class="text-danger">*</span></label>
+                <input type="number" min="1"  class="form-control btnInput" name="cantInsumo" id="cantInsumo">
+                       <div id="mensajeError"></div>
+              </div>
+
+              <div class="mb-2 form-group">
+                <label for="stockMin" class="form-label fontTtitle">Stock Mínimo  <span class="text-danger">*</span></label>
+                <input type="number" min="1"  class="form-control btnInput" name="cantInsumo" id="cantInsumo">
+                <div id="mensajeError"></div>
+              </div>
+
+              <div class="mb-2 form-group">
+                <label for="iva" class="form-label fontTtitle">Iva  <span class="text-danger">*</span></label>
+                <input type="number" min="1" class="form-control btnInput" name="iva" id="iva" placeholder="$">
+                <div id="mensajeError"></div>
+              </div>
+
+       </div>  
+
+           </div>
+                     <button type="button" class="btn btnLimpiar">Limpiar</button>
+                     <button type="button" class="btn btnCancelar">Cancelar</button>
+                     <button type="button" class="btn btnGuardar" onclick="validarFormulario()">Guardar cambios</button>
+           </form>
+    
+                   </div>
+
+
+
+                 <!--LISTADOS-->
+                 
+    <div class="containerListar">
+
+      <div class="container2">
+
+              <h2 class="textoh1 mt-3">Listado Insumos</h2>
+              <!-- <hr class="lineaHorizontal"> -->
+
+              <table class="table table-orientacion">
+                  <thead>
+                    <tr>
+                      <td scope="col" class="camposListar text-center">ID Pedido</td>
+                      <td scope="col" class="camposListar text-center">Nombre Insumo</td>
+                      <td scope="col" class="camposListar text-center">Stock</td>
+                      <td scope="col" class="camposListar text-center">Stock Mínimo</td>
+                      <td scope="col" class="camposListar text-center">Stock Máximo</td>
+                      <td scope="col" class="camposListar text-center">Estado</td>
+                      <td scope="col" class="text-center camposListar">operaciones</td>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="datosListar text-center">2048</th>
+                      <td class="datosListar text-center">Tela Monaco</td>
+                      <td class="datosListar text-center">4</td>
+                      <td class="datosListar text-center">1</td>
+                      <td class="datosListar text-center">12</td>
+                      <td class="datosListar text-center">Activo</td>
+
+                      <!--BOTONES DE OPERACION-->
+                      <td class="icons"> 
+                          <div>  
+                              <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button> 
+                             </div>
+
+                          <div>  
+                             <button type="button" class="btn"> <img src="../img/show.ico" alt="" class="iconos-listar"> </button>
+                             </div>
+
+                          <div>   
+                             <button type="button" class="btn"> <img src="../img/delete.ico" alt="" class="iconos-listar"></button>
+                            </div>
+
+                            <div class="form-check form-switch checkeo">
+                              <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+
+                      </td>
+                          <!--FIN BOTONES DE OPERACION-->
+
+                    </tr>
+
+                    <tr>
+                      <th scope="row" class="datosListar text-center">2545</th>
+                      <td class="datosListar text-center">Tela Perso</td>
+                      <td class="datosListar text-center">2</td>
+                      <td class="datosListar text-center">1</td>
+                      <td class="datosListar text-center">12</td>
+                      <td class="datosListar text-center">Inactivo</td>
+                            <!--BOTONES DE OPERACION-->
+                      <td class="icons"> 
+                          <div>  
+                              <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button> 
+                             </div>
+
+                          <div>  
+                             <button type="button" class="btn"> <img src="../img/show.ico" alt="" class="iconos-listar"> </button>
+                             </div>
+
+                          <div>   
+                             <button type="button" class="btn"> <img src="../img/delete.ico" alt="" class="iconos-listar"></button>
+                            </div>
+
+                            <div class="form-check form-switch checkeo">
+                              <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+
+                      </td>
+                          <!--FIN BOTONES DE OPERACION-->
+
+                    </tr>
+                    <tr>
+                      <th scope="row" class="datosListar text-center">4052</th>
+                      <td class="datosListar text-center" >Tela Algodón</td>
+                      <td class="datosListar text-center">10</td>
+                      <td class="datosListar text-center">1</td>
+                      <td class="datosListar text-center">20</td>
+                      <td class="datosListar text-center">Activo</td>
+                            <!--BOTONES DE OPERACION-->
+                      <td class="icons"> 
+                          <div>  
+                              <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button> 
+                             </div>
+
+                          <div>  
+                             <button type="button" class="btn"> <img src="../img/show.ico" alt="" class="iconos-listar"> </button>
+                             </div>
+
+                          <div>   
+                             <button type="button" class="btn"> <img src="../img/delete.ico" alt="" class="iconos-listar"></button>
+                            </div>
+
+                            <div class="form-check form-switch checkeo">
+                              <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+
+                      </td>
+                          <!--FIN BOTONES DE OPERACION-->
+
+
+                    </tr>
+
+                  </tbody>
+                </table>
+                <nav aria-label="Page navigation example" class="pag">
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                      <a class="page-link">&laquo;</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">&raquo;</a>
+                    </li>
+                  </ul>
+                </nav>
+
+      </div>
+      
+</div>
+
+{{> footer }}
+                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+                <script src="../js/validarFormularioPedido.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+.btnInput{
+    width: 400px;
+}
+
+/* Estilo para entrada válida */
+.btnInput.valido  {
+    border: 1px solid #34ed5f;
+}
+
+/* Estilo para entrada inválida */
+.btnInput.invalido {
+    border: 1px solid #dc3545;
+}
+
+
+.btnInput2 {
+    width: 180px;
+}
+
+.btnInput2.valido2 {
+    border: 1px solid #34ed5f;
+}
+
+
+ .btnInput2.invalido2{
+    border: 1px solid #dc3545;
+ } 
+
+
+#mensajeError {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorCorreo {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorCelular{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorDireccion{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorApto {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorMedInsumo {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorDetalle {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorNumPedido {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorDireccionResid {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorDireccion{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}

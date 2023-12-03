@@ -1,0 +1,233 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Estampados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilosGenericos.css">
+</head>
+
+<body>
+
+    {{> header title="Diseño Estampados"}}
+
+    <div class="containerBueno">
+        <h2 class="textoh1 mt-3" id="nombreAccion">Registrar diseño estampado</h2>
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Nombre estampado</label>
+                        <input type="text" class="form-control btnInput" name="inputNombreEstampado"
+                            id="inputNombreEstampado" oninput="validarNombreEstampado()">
+                        <div id="mensajeErrorNombre" class="mensajeErrorNombre" style="color: #dc3545;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="descripcion" class="form-label fontTtitle">Descripción</label>
+                        <textarea class="form-control btnInput" name="descripcion" id="descripcion" rows="3"
+                            style="max-height: 100px; overflow-y: auto;"
+                            oninput="validarDescripcionEstampado()"></textarea>
+                        <div id="descripcionError" class="text-danger"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="imagenes" class="form-label fontTtitle">Cargar imágenes</label>
+                        <input type="file" class="form-control btnInput" name="imagenes" id="imagenes" accept="image/*"
+                            multiple onchange="validarImagenEstampado()">
+                        <div id="imagenesError" class="text-danger"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-5">
+                    <button type="button" class="btn btnLimpiar" onclick="">Limpiar</button>
+                    <button type="button" class="btn btnCancelar" onclick="">Cancelar</button>
+                    <button type="button" class="btn btnGuardar" onclick="guardarCambiosEstampado()">Guardar
+                        cambios</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="search">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-secondary boton-search" type="submit"><img src="img/search.ico" alt="search"
+                    class="icono-search"></button>
+        </form>
+    </div>
+
+    <div class="containerBueno">
+        <h2 class="textoh1 mt-3">Listado diseños estampados</h2>
+        <table id="tablaEstampados" class="table table-orientacion">
+            <thead>
+                <tr>
+                    <td scope="col" class="camposListar">Id estampado</td>
+                    <td scope="col" class="camposListar">Nombre estampado</td>
+                    <td scope="col" class="camposListar">Descripcion</td>
+                    <td scope="col" class="camposListar">Estado</td>
+                    <td scope="col" class="camposListar">Diseño</td>
+                    <td scope="col" class="text-center camposListar" style="width: 200px;">Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example" class="pag">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="modal fade" id="exitoModal" tabindex="-1" aria-labelledby="exitoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exitoModalLabel">Estampado creado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha creado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacionModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar este estampado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmarEliminarBtn">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exitoModalEstampado" tabindex="-1" aria-labelledby="exitoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exitoModalLabel">Estampado editado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha creado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exitoModalEstampadoEdit" tabindex="-1" aria-labelledby="exitoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exitoModalLabel">Estampado editado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha editado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirmarCambioEstadoModal" tabindex="-1"
+        aria-labelledby="confirmarCambioEstadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarCambioEstadoModalLabel">Confirmar Cambio de Estado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea cambiar el estado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmarCambioEstado()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea eliminar este estampado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger"
+                        onclick="confirmarEliminarEstampado()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="eliminadoExitosamenteModal" tabindex="-1"
+        aria-labelledby="eliminadoExitosamenteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eliminadoExitosamenteModalLabel">Estampado eliminado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha eliminado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/diseñoEstampado.js">
+    
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

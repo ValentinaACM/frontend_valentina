@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/gestionUsuarios.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body class="bodybg">
+  <!--NAVBAR-->
+    {{> header title="Gestion Usuarios"}}
+    <!--FORMULARIO-->
+
+    <div class="container"> <!--Contenedor Padre-->
+
+
+        <form class="formularioInt">
+            <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+            <h1 class="textoh1">Editar Usuarios</h1>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="mb-3 form-group">
+                        <label for="numPedido" class="form-label fontTtitle">Nombre completo</label>
+                        <input type="text" class="form-control btnInput" name="nombreCom" id="nombreCom"
+                            placeholder="Esteban Muñoz">
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="fechaPedido" class="form-label fontTtitle">Contraseña</label>
+                        <input type="password" class="form-control" name="fechaPedido" id="fechaPedido"
+                            placeholder="•••••••••••••••">
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Estado" class="form-label fontTtitle">Rol</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="2">Empleado</option>
+                            <option value="1">Administrador</option>
+                            <option value="3">Cliente</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="mb-3 form-group">
+                        <label for="nomCliente" class="form-label fontTtitle">Correo Electronico</label>
+                        <input type="email" class="form-control btnInput" id="nomCliente"
+                            placeholder="dhejgfy@gmail.com">
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="formaPago" class="form-label fontTtitle">Confirmar Contraseña</label>
+                        <input type="text" class="form-control" id="formaPago" placeholder="•••••••••••••••">
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Estado" class="form-label fontTtitle">Estado</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">Activo</option>
+                            <option value="2">Inactivo</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <button type="button" class="btn btnLimpiar">Limpiar</button>
+            <button type="button" class="btn btnCancelar">Cancelar</button>
+            <button type="button" class="btn btnGuardar" onclick="validarFormulario()">Guardar cambios</button>
+        </form>
+
+    </div>
+
+
+
+    <!--LISTADOS-->
+
+    <div class="container">
+
+        <div class="container2">
+
+            <h2 class="textoh1 mt-3">Listado Usuarios</h2>
+            <!-- <hr class="lineaHorizontal"> -->
+
+            <table class="table table-orientacion m-2">
+                <thead>
+                    <tr>
+                        <td scope="col" class="camposListar">ID</td>
+                        <td scope="col" class="camposListar">Nombre Completo</td>
+                        <td scope="col" class="camposListar">Correo Electronico</td>
+                        <td scope="col" class="camposListar">Rol</td>
+                        <td scope="col" class="camposListar">Estado</td>
+                        <td scope="col" class="text-center camposListar">operaciones</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="datosListar">0001</th>
+                        <td class="datosListar">Juan Muñoz</td>
+                        <td class="datosListar">juanpislomasfo@gmail.com</td>
+                        <td class="datosListar">Administrador</td>
+                        <td class="datosListar">Activo</td>
+                        <!--BOTONES DE OPERACION-->
+                        <td class="icons">
+                            <div>
+                                <button type="button" class="btn"> <img src="/img/pencil.ico" alt=""
+                                        class="iconos-listar"> </button>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn"> <img src="/img/show.ico" alt=""
+                                        class="iconos-listar"> </button>
+                            </div>
+                        </td>
+                        <!--FIN BOTONES DE OPERACION-->
+
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="datosListar">0002</th>
+                        <td class="datosListar">Esteban Muñoz</td>
+                        <td class="datosListar">dhejgfy@gmail.com</td>
+                        <td class="datosListar">Cliente</td>
+                        <td class="datosListar">Activo</td>
+                        <!--BOTONES DE OPERACION-->
+                        <td class="icons">
+                            <div>
+                                <button href="editarUsuario.html" type="button" class="btn"> <img src="/img/pencil.ico"
+                                        alt="" class="iconos-listar"> </button>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn"> <img src="/img/show.ico" alt=""
+                                        class="iconos-listar"> </button>
+                            </div>
+                        </td>
+                        <!--FIN BOTONES DE OPERACION-->
+                    </tr>
+                    <tr>
+                        <th scope="row" class="datosListar">0003</th>
+                        <td class="datosListar">Jhon Muñoz</td>
+                        <td class="datosListar">jmuñoz@gmail.com</td>
+                        <td class="datosListar">Cliente</td>
+                        <td class="datosListar">Inactivo</td>
+                        <!--BOTONES DE OPERACION-->
+                        <td class="icons">
+                            <div>
+                                <button type="button" class="btn"> <img src="/img/pencil.ico" alt=""
+                                        class="iconos-listar"> </button>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn"> <img src="/img/show.ico" alt=""
+                                        class="iconos-listar"> </button>
+                            </div>
+                        </td>
+                        <!--FIN BOTONES DE OPERACION-->
+                    </tr>
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="pag">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link">&laquo;</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+    {{> footer }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/assets/validaciones/validarFormulario.js"></script>
+
+</body>
+
+
+</html>

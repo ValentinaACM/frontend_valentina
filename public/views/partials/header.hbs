@@ -1,0 +1,148 @@
+<header class="border-bottom">
+  <div class="container1">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <!-- El tittle es para poner dinamico el nombre de donde nos encontramos -->
+        <li>
+            <!--NAVBAR-->
+            <nav class="navbar navbar-ligth bg-ligth sticky-top">
+              <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasligthNavbar" aria-controls="offcanvasligthNavbar"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+                  </span>
+                </button>
+
+                <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#"></a>
+                <ul class="navbar-nav justify-content-end flex-grow-1 text-end">
+                  <li class="nav-item dropdown" data-bs-toggle="dropdown">
+                  </li>
+                </ul>
+
+
+                <div class="offcanvas offcanvas-start text-bg-ligth" tabindex="-1" id="offcanvasligthNavbar"
+                  aria-labelledby="offcanvasligthNavbarLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasligthNavbarLabel">MENÚ</h5>
+                    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">DASHBOARD</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          CONFIGURACIÓN
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="#">Roles</a></li>
+                          <li><a class="dropdown-item" href="#">Gestion de usuarios</a></li>
+
+
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          COMPRAS
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="#">Categoria De Insumos</a></li>
+                          <li><a class="dropdown-item" href="#">Gestión De Insumos</a></li>
+                          <li><a class="dropdown-item" href="/formularioProveedores.html">Gestión De Proveedores</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Gestión De Compras</a></li>
+
+
+                        </ul>
+                      </li>
+
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          PRODUCCIÓN
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="/FRONTENDDEVELOPMENT/formularioEmpleados.html">Gestión De
+                              Empleados</a></li>
+                          <li><a class="dropdown-item" href="/FRONTENDDEVELOPMENT/fichatecnica.html">Gestión De Ficha
+                              Tecnica</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Gestión De Orden De Producción</a></li>
+
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          PRODUCTOS
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="#">Estampados</a></li>
+                          <li><a class="dropdown-item" href="#">Catalogo De Productos</a></li>
+                          <li><a class="dropdown-item" href="#">Producto Base</a></li>
+                          <li><a class="dropdown-item" href="#">Producto Personalizado</a></li>
+
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          PEDIDOS
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="#">Gestión De Cotización</a></li>
+                          <li><a class="dropdown-item" href="#">Gestión Carrito De Productos</a></li>
+                          <li><a class="dropdown-item" href="#">Gestión De Pedidos</a></li>
+
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          VENTAS
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-ligth">
+                          <li><a class="dropdown-item" href="#">Gestión De Clientes</a></li>
+                          <li><a class="dropdown-item" href="#">Gestión De Ventas</a></li>
+                          <li><a class="dropdown-item" href="#">Gestión De Pedidos</a></li>
+
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </nav>
+        </li>
+        <li>
+          <h1 class="h2">{{title}}</h1>
+        </li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+      </form>
+      <div class="dropdown text-end">
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
+        </a>
+        <ul class="dropdown-menu text-small" style="">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

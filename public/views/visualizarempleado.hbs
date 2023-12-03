@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/empleados.css">
+    <link rel="stylesheet" href="../css/estilosgeneral.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    </style>
+
+
+
+
+    
+
+    <title>Visualizar</title>
+
+
+<body class="bodybg">
+     {{> header title="Empleados"}}
+
+
+    <div class="container"> <!--Contenedor Padre-->
+
+
+        <form class="formularioInt">
+            <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+            <h1 class="textoh1"> Empleados</h1>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="mb-3 form-group">
+                        <label for="nombrecom" class="form-label fontTtitle">Nombre Completo <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="nombrecom" id="nombrecom" value="Anibal Rodriguez Ruiz" disabled
+                            oninput="validarNombre()">
+                        <div id="mensajeError" class="mensajeError"></div>
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Cedula" class="form-label fontTtitle">Documento<span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="Cedula" id="Cedula" value="1042066987" disabled
+                            oninput="validarCedula()">
+                        <div id="mensajeErrorCedula" class="mensajeError"></div>
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Celular" class="form-label fontTtitle">Celular<span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="Celular" id="Celular" value="3178324567" disabled
+                            oninput="validarCelular()">
+                        <div id="mensajeErrorCelular" class="mensajeError"></div>
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Contrasena" class="form-label fontTtitle">Contraseña<span
+                                class="text-danger">*</span></label>
+                        <input type="password" class="form-control btnInput" name="Contrasena" id="Contrasena" value="98760987" disabled
+                            oninput="validarContraseña()">
+                        <div id="mensajeErrorContraseña" class="mensajeError"></div>
+                    </div>
+
+
+                    <div class="mb-4 form-group">
+                        <label for="confirmacionContraseña" class="form-label fontTtitle">Confirmación de
+                            contraseña<span class="text-danger">*</span></label>
+                        <input type="password" class="form-control btnInput" name="confirmacionContraseña" id="confirmacionContraseña" value="98760987" disabled  oninput="validarContraseña()">
+                        <div id="mensajeErrorContraseña" class="mensajeError"></div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-6 form2">
+                    <select class="form-select" aria-label="Default select example" disabled>
+                        <option selected >Nueva Eps</option>
+                        <option value="1"></option>
+                        <option value="2">Sura</option>
+                        <option value="3">Coomeva</option>
+                        <option value="4">Salud Total</option>
+                        <option value="5">Sanitas</option>
+                        <option value="6">Sanitas</option>
+                    </select>
+
+                    <div class="mb-4 form-group">
+                        <label for="fechanacimiento" class="form-label fontTtitle">Fecha de nacimiento<span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control btnInput" name="fechanacimiento" id="fechanacimiento" value="1998-03-02" disabled
+                            oninput="validarfechanacimiento()">
+                        <div id="mensajeErrorFechaNacimiento" class="mensajeError"></div>
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="fechacontratacion" class="form-label fontTtitle">Fecha de contratación<span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control btnInput" name="fechacontratacion" id="fechacontratacion" value="2023-03-22" disabled
+                            oninput="validarFechas()">
+                        <div id="mensajeErrorFechas" class="mensajeError"></div>
+                    </div>
+
+
+                    <div class="mb-4 form-group">
+                        <label for="fechaterminacion" class="form-label fontTtitle">Fecha de Terminacion<span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control btnInput" name="fechaterminacion" id="fechaterminacion" value="2025-03-02" disabled
+                            oninput="validarFechas()">
+                        <div id="mensajeErrorFechas2" class="mensajeError"></div>
+                    </div>
+
+                    <div class="mb-4 form-group">
+                        <label for="Correo" class="form-label fontTtitle">Correo Electrónico<span
+                                class="text-danger">*</span></label>
+                        <input type="email" class="form-control btnInput" name="Correo" id="Correo" value="Anibital9867@gmail.com" disabled
+                            oninput="validarCorreo()">
+                        <div id="mensajeErrorCorreo" class="mensajeError"></div>
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+            
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/FRONTENDDEVELOPMENT/assets/validaciones/validarEmpleados.js"></script>
+
+{{> footer }}
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+
+.container {
+    /* Contenedor Padre */
+    display: flex;
+    width: 900px;
+    height: 470px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.containerListar {
+    /* Contenedor Padre */
+    display: flex;
+    width: 1000px;
+    height: 390px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 30px;
+    margin-left: 235px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+
+}
+
+.container2 {
+    width: 100%;
+    height: 100px;
+}
+
+
+
+.table-orientacion {
+    margin-top: 40px;
+}
+
+.textoh1 {
+    /* Título para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 25pt;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top:-29px;
+    font-weight: bold;
+    padding-left: 30px;
+}
+
+.formularioInt {
+    /* Formulario estilos */
+    width: 1000px;
+    height: 810;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    padding-left: 5px;
+    margin-right: 195px;
+}
+
+.btnInput {
+    /* Campo de input para estilos y tamaños */
+    width: 320px;
+
+}
+
+.fontTtitle {
+    /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    padding-left: 20px;
+
+}
+
+.row {
+    /* Contenedor Hijo */
+    width: 870px;
+}
+
+.btnSiguiente {
+    /*Boton de Siguiente */
+    display: flex;
+    margin-left: 745px;
+    background-color: #1f2553;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.user {
+    border-radius: 50%;
+}
+
+.btnGuardar {
+    display: flex;
+    margin-left: 680px;
+    background-color: #1f2553;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: -37px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.btnLimpiar {
+    display: flex;
+    margin-left: 580px;
+    background-color: #1f2553;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btnCancelar {
+    position: absolute;
+    margin-left: 470px;
+    background-color: #1f2553;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: -37px;
+}
+
+
+/* Eliminar los estilos en el estado :hover */
+.btnCancelar:hover,
+.btnGuardar:hover,
+.btnLimpiar:hover {
+    background-color: #e1e1e1;
+    color: #1f2553;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.iconos-listar {
+    width: 15px;
+}
+
+
+
+.textArea {
+    display: flex;
+
+}
+
+textarea {
+    height: 50px;
+}
+
+
+table.table-orientacion .camposListar {
+    color: #1f2553;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+}
+
+table.table-orientacion .datosListar {
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+
+}
+
+
+.pag {
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.pag .page-link {
+    color: #ffffff;
+    /* Cambia el color del texto a rojo */
+    background-color: #1f2553;
+    /* Cambia el color de fondo a amarillo */
+    border-color: #1f2553;
+    /* Cambia el color del borde a rojo (si es necesario) */
+}
+
+
+/*BOTON DEL CHECK OPERACIONES */
+.checkeo {
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.form-check-input {
+    position: relative;
+    width: 50px;
+    /* Ancho del checkbox */
+    height: 18px;
+    /* Altura del checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #1f2553;
+    /* Color del botón cuando no está marcado */
+    border: 1px solid #1f2553;
+    /* Color del borde del botón cuando no está marcado */
+    border-radius: 50px;
+    /* Asegura que el botón tenga forma de círculo */
+    transition: background-color 0.1s, border-color 0.1s;
+}
+
+.form-check-input:checked {
+    background-color: #008000;
+    /* Color del botón cuando está marcado */
+    border-color: green;
+    /* Color del borde del botón cuando está marcado */
+}
+
+.form-check-input::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    /* Ancho del botón */
+    height: 12px;
+    /* Altura del botón */
+    background-color: white;
+    /* Color del botón */
+    border-radius: 50%;
+    /* Asegura que el botón tenga forma de círculo */
+    left: 2.5px;
+    /* Ajusta la posición del botón dentro del checkbox */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.1s;
+}
+
+.form-check-input:checked::before {
+    background-color: #008000;
+    /* Cambia el color del botón cuando está marcado */
+}
+
+.form-check-input:checked:focus::before {
+    content: '';
+    /* Evita que aparezca un segundo círculo al hacer clic */
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+    /* Evita el resplandor al hacer clic en el checkbox */
+}
+
+/*FIN BOTON DEL CHECK OPERACIONES */
+.row {
+    margin-left: 10px;
+    margin-top: 0;
+    padding-top: 0%;
+
+}
+
+.container-fluid {
+    margin-top: 0;
+    padding-top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-control {
+        width: 100%;
+    }
+}

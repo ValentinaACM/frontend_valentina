@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,  shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/agregarPedido.css">
+      <link rel="stylesheet" href="../css/estilosgeneral.css">
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+    <title>Agregar Pedido</title>
+</head>
+<body class="bodybg">
+
+{{> header title="Pedido"}}
+
+  <div class="containerAgregarPedido"> <!--Contenedor Padre-->
+
+
+    <form class="formularioInt">
+      <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+             <a href="/pedidos"><img src="../img/return.ico" class="img-return"></a> 
+              <h1 class="textoh1">Editar Pedido</h1>
+               
+               <div class="row"> 
+                
+             <div class="col-md-6">
+                
+
+                <div class="mb-3 form-group">
+                    <label for="numPedido" class="form-label textoh2">Info Pedido</label>
+                  </div>
+
+                     <div class="col-md-12 mt-5 mb-5 form-group">
+                       <label for="nomCliente" class="form-label fontTtitle">Nombre Cliente <span class="text-danger">*</span></label>
+                       <input type="text" class="form-control btnInput" name="nomCliente" id="nomCliente" oninput="validarNombre()" placeholder="Juan Muñoz">
+                       <div id="mensajeError"></div>
+                     </div>
+
+                     <div class="mb-5 form-group">
+                        <label for="email" class="form-label fontTtitle">Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control btnInput" name="email" id="email"  oninput="validarCorreo()" placeholder="papomunoz06@gmail.com">
+                        <div id="mensajeErrorCorreo"></div>
+                      </div>
+
+                      <div class="mb-5 form-group">
+                        <label for="celular" class="form-label fontTtitle">Celular <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="celular" id="celular"  oninput="validarCelular()" placeholder="3016590931">
+                        <div id="mensajeErrorCelular"></div>
+                      </div>
+
+                      <div class="mb-5 form-group">
+                        <label for="direccion" class="form-label fontTtitle">Dirección <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="direccion" id="direccion" oninput="validarDireccion()" placeholder="cra 57a #67f-48">
+                        <div id="mensajeErrorDireccion"></div>
+                      </div>
+
+                      <div class="mb-5 form-group">
+                        <label for="apto" class="form-label fontTtitle">Casa/Apto/Oficina <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="apto" id="apto"  oninput="validarApto()" placeholder="apto 12">
+                         <div id="mensajeErrorApto"></div>
+                      </div>
+
+                      
+        <div class="">
+          <a href="/agregarPedido.html"><button type="button" class="btn btn-light more">Cancelar</button> </a> 
+       </div>
+
+       <div class="">
+        <a href="/agregarPedido.html"><button type="submit" class="btn btn-light more2" id="btnGuardar">Guardar</button> </a> 
+     </div>
+
+       
+                     
+             </div> 
+                 
+             <div class="col-md-6">
+
+                  <div class="row2">
+
+                       
+                <div class="mb-6 form-group">
+                  <label for="numPedido" class="form-label textoh3">Pedido</label>
+                </div>
+
+                        <div class="row-cols-2 row3">
+
+                        <div class="p-1 mb-6 form-group">
+                            <label for="numPedido" class="form-label fontTtitle">Núm Pedido <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control btnInput2" name="numPedido" id="numPedido"  oninput="validarNumPedido()" placeholder="4401">
+                            <div id="mensajeErrorApto"></div>
+                         </div>
+
+                         <div class="p-1 mb-6  form-group">
+                            <label for="nomInsumo" class="form-label fontTtitle">Total Pedido <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control btnInput2" name="nomInsumo" id="nomInsumo" required placeholder="170.000">
+                         </div> 
+
+                         <div class="p-1 mb-6 form-group">
+                            <label for="Estado" class="form-label fontTtitle">Estado <span class="text-danger">*</span></label>
+                            <select class="form-select selector" aria-label="Default select example" required>
+                              <option selected></option>
+                              <option value="1">Pendiente</option>
+                              <option value="2">Revisión</option>
+                              <option value="3">Aprobado</option>
+                              <option value="4">Rechazado</option>
+                              <option value="5">Cancelado</option>
+                            </select>
+                          </div>
+
+                          <div class="p-1 mb-6  form-group">
+                            <label for="nomInsumo" class="form-label fontTtitle">Dirección <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control btnInput2" name="nomInsumo" id="nomInsumo" required placeholder="carrera 57a #37-21">
+                         </div> 
+
+                         <div class="p-1 mb-6  form-group">
+                            <label for="nomInsumo" class="form-label fontTtitle">Fecha Pedido <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control btnInput2" name="nomInsumo" id="nomInsumo" required placeholder="09/11/2023">
+                         </div> 
+
+                         <div class="p-1 mb-6  form-group">
+                            <label for="nomInsumo" class="form-label fontTtitle">Fecha Entrega <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control btnInput2" name="nomInsumo" id="nomInsumo" required placeholder="21/11/2023">
+                         </div> 
+
+                    </div>
+
+                        <!--Incio rowTransaccion-->
+                    <div class="rowTransaccion gridAggPedido2">
+
+
+                   <div class="p-2 mb-6  form-group">
+                    <label for="nomInsumo" class="form-label fontTtitleAggPedido2">Forma Pago  <span class="text-danger">*</span></label>
+                    <select class="form-select selectPagos" aria-label="Default select example" required>
+                      <option selected></option>
+                      <option value="1">Bancolombia</option>
+                      <option value="2">Nequi</option>
+                      <option value="3">DaviPlata</option>
+                      <option value="4">Bbva</option>
+                      <option value="5">Pse</option>
+                    </select>
+                 </div> 
+
+                 
+                        <!-- Contenedor para la vista previa de la imagen -->
+                      <div class="contenedorImg2" id="contenedorImg2">
+                          <img id="imgComprobante" class="imgComprobante">
+
+                      </div>
+
+                      <!--Comprobante de pago-->
+                      <div class="contenedorArchivo">
+                        <form>
+                            <div class="form-control">
+                              <label for="customFile" class="form-label" >Seleccionar Imagen</label>
+                                <input type="file" class="form-control visually-hidden" id="customFile" accept="image/*" onchange="mostrarImagenSeleccionada(this)" required>
+                              
+                            </div>
+                        </form>
+                    
+                        <button class="descargar-btn"  id="descargar-btn" onclick="descargarImagen()" disabled >Descargar Imagen</button>
+                    
+                    </div>
+
+                      
+
+
+                    </div>
+                    
+                    <!--Fin de rowTransaccion-->
+
+                    
+                    <div class="row4 gridAggPedido">
+
+                      <img src="../img/more.ico" alt="Agregar Producto" class="imgAggProducto">
+
+                      <div class="p-2 mb-6  form-group">
+                        <label for="nomInsumo" class="form-label fontTtitleAggPedido">Producto</label>
+                     </div> 
+
+                     <div class="p-2 mb-6  form-group">
+                      <label for="nomInsumo" class="form-label fontTtitleAggPedido">Cantidad <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control btnInput2" name="nomInsumo" id="nomInsumo" required placeholder="1">
+                   </div> 
+
+                   <div class="p-2 mb-6  form-group">
+                    <label for="nomInsumo" class="form-label fontTtitleAggPedido">Talla <span class="text-danger">*</span></label>
+                    <select class="form-select" aria-label="Default select example" required>
+                      <option selected></option>
+                      <option value="1">S</option>
+                      <option value="2">M</option>
+                      <option value="3">L</option>
+                      <option value="4">XL</option>
+                      <option value="5">XXL</option>
+                    </select>
+                 </div> 
+
+                      <div class="contenedorImg">
+                          <img src="../img/hoodie.png" alt="hoodie" class="imgProducto">
+
+                      </div>
+
+
+                    </div>
+
+
+                    <div class="row5">
+
+                      <!--LISTADO DE PRODUCTOS-->
+                      <div class="containerListarAgg">
+
+                        <div class="container2"> <!--Contenedor tipo encabezado, para el titulo-->
+            
+            
+                                <table class="table table-orientacion">
+                                    <thead>
+                                      <tr>
+                                        <td scope="col" class="camposListar">Producto</td>
+                                        <td scope="col" class="camposListar">Categoría</td>
+                                        <td scope="col" class="camposListar">Cantidad</td>
+                                        <td scope="col" class="camposListar">Talla</td>
+                                        <td scope="col" class="camposListar">Subtotal</td>
+                                        <td scope="col" class="text-center camposListar">operaciones</td>
+            
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row" class="datosListar">Camisa</th>
+                                        <td class="datosListar">Chaqueta</td>
+                                        <td class="datosListar">10</td>
+                                        <td class="datosListar">S</td>
+                                        <td class="datosListar">145.000</td>
+                                        <td class="icons"> 
+            
+                                                <!--BOTONES SIN LA MODAL, ASÍ SE USARÁN NORMALMENTE--> 
+                                                <div> 
+                                                    <a href=""> <img src="/assets/img/pencil.ico" alt="" class="iconos-listar img-delete"></a>
+                                               </div>
+                                                <div> 
+                                                    <a href="/agregarPedido.html"> <img src="/assets/img/show.ico" alt="" class="iconos-listar img-show"></a>
+                                                </div>
+            
+                                                    <div> 
+                                                         <a href=""> <img src="/assets/img/delete.ico" alt="" class="iconos-listar img-delete"></a>
+                                                    </div>
+                                        </td>
+                                      </tr>
+            
+                                      <tr>
+                                        <th scope="row" class="datosListar">0002</th>
+                                        <td class="datosListar">Pantalon</td>
+                                        <td class="datosListar">20</td>
+                                        <td class="datosListar">L</td>
+                                        <td class="datosListar">25.000</td>
+                                        <td class="icons"> 
+            
+                                            <div> 
+                                                <a href=""> <img src="/assets/img/pencil.ico" alt="" class="iconos-listar img-delete"></a>
+                                           </div>
+            
+                                            <div>  
+                                                 <a href="/agregarPedido.html"> <img src="/assets/img/show.ico" alt="" class="iconos-listar img-show"></a>
+                                             </div>
+            
+                                             <div>  
+                                                 <a href=""> <img src="/assets/img/delete.ico" alt="" class="iconos-listar img-delete"></a>
+                                             </div>
+                                        </td>
+            
+                                      </tr>
+                                
+                                    </tbody>
+                                  </table>
+
+                                  <nav aria-label="Page navigation example" class="pag">
+                                    <ul class="pagination ">
+                                      <li class="page-item disabled">
+                                        <a class="page-link">&laquo;</a>
+                                      </li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="#">&raquo;</a>
+                                      </li>
+                                    </ul>
+                                  </nav>
+            
+                        </div>
+                        
+                </div>
+
+
+
+                    </div>
+
+
+                  </div>
+
+
+       </div>  
+
+
+         </div>
+         <!-- <button type="button" class="btn btnLimpiar">Limpiar</button>
+         <button type="button" class="btn btnCancelar">Cancelar</button>
+         <button type="button" class="btn btnGuardar" onclick="validarFormulario()">Guardar cambios</button> -->
+                   </form>
+                      
+                 </div>
+
+                 {{> footer }}
+
+                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+                 
+                 
+<!-- Enlaza el archivo JavaScript externo -->
+<script src="../js/validarFormularioPedido.js"></script>
+
+<script src="../js/comprobantePagoPedidos.js"></script>
+ 
+ </body>
+ </html>

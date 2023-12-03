@@ -1,0 +1,458 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(245, 245, 245);
+}
+
+.containerAgregarPedido { /* Contenedor Padre */
+    display: flex;
+    width: 1050px;
+    height: 1150px; /*1200px */
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 55px;
+    margin-left: 250px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.formularioInt  { /* Formulario estilos */
+    max-width: 100%;
+    height: 100%;
+   align-items: center;
+   justify-content: center;
+   padding-top: 20px;
+   padding-left: 12px;
+   margin-right: 200px;
+}
+
+.textoh1 { /* Título para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 25pt;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.textoh2 { /* Subtítulo para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 18pt;
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.textoh3 { /* Subtítulo para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 18pt;
+    display: flex;
+    margin-top: -590px;
+    margin-left: 20px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.row{ /* Contenedor Hijo */
+    width: 335px; /* 100px*/
+    height: 1035px;
+   margin-top: -20px;
+   margin-left:5px;
+   background-color: rgb(245, 245, 245);
+   border-radius: 10px 10px 10px 10px;
+   padding-top: 10px;
+   padding-left: 5px;
+
+}
+
+.fontTtitle{ /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+}
+
+.fontTtitleAggPedido{ /*Textos para los campos  */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+    margin-left:20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.fontTtitleAggPedido2{ /*Textos para los campos  */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+    margin-left:190px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.gridAggPedido{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; 
+}
+
+.gridAggPedido2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+}
+
+.btnInput {
+    width: 300px;
+}
+
+
+/* Estilo para entrada válida */
+.btnInput.valido {
+    border: 1px solid #34ed5f;
+}
+
+/* Estilo para entrada inválida */
+.btnInput.invalido {
+    border: 1px solid #dc3545;
+}
+
+#mensajeError {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorCorreo {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorCelular{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorDireccion{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorApto {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+
+.btnInput2 {
+    width: 180px;
+}
+
+
+
+.row2{ /* Contenedor Hijo */
+    width: 660px;
+    height:1035px;
+    margin-left: 170px;
+    margin-top: 580px;
+   background-color: rgb(245, 245, 245);
+   border-radius: 10px 10px 10px 10px;
+
+}
+
+.row3{ /* Contenedor Hijo */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; 
+    width: 690px;
+    height: 280px;
+   margin-top: 10px;
+   margin-left:20px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 50px;
+
+   
+}
+
+.row4{ /* Contenedor Hijo */
+ 
+    width: 620px;
+    height: 240px;
+   margin-top: 10px;
+   margin-left:20px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 30px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   border: 1px solid #e1e1e1;
+}
+
+.row5{ /* Contenedor Hijo */
+ 
+    width: 690px;
+    height: 240px;
+   margin-top: 20px;
+   margin-left:20px;
+   padding-top: 5px;
+   padding-bottom: 90px;
+   padding-right: 30px;
+   /* background-color: rgb(178, 56, 56); */
+   border-radius: 10px;
+ 
+}
+
+.rowTransaccion{ /* Contenedor Hijo */
+ 
+    width:470px;
+    height: 250px;
+   margin-top: -90px;
+   margin-left:95px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 30px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   border: 1px solid #e1e1e1;
+}
+
+
+.selectPagos {
+    margin-left: 190px;
+    margin-top: -5px;
+    width: 200px;
+}
+.contenedorImg{
+    position: absolute;
+    width: 150px; /* Puedes ajustar el tamaño del rectángulo según tus necesidades */
+    height: 150px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+}
+
+.contenedorImg2{
+    position: absolute;
+    width: 150px; /* Puedes ajustar el tamaño del rectángulo según tus necesidades */
+    height: 230px;
+    margin-top: -5PX;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    /* background-color: #34ed5f; */
+}
+
+.contenedorImg2 .imgComprobante{
+    width: 155px;
+    height: auto;
+    display:flexbox;
+}
+
+.contenedorImg2:disabled{
+    border: 1px solid #e1e1e1;
+}
+
+.contenedorImg .imgProducto {
+    width: 150px;
+    height: auto;
+    display: block;
+
+}
+.img-return {
+    display:flex;
+    position: absolute;
+    width: 30px;
+    margin-top: -20px;
+    margin-left: -10px;
+}
+
+.imgAggProducto { /*IMAGEN DE AGREGAR UN PRODUCTO MÁS */
+    position: absolute;
+    width: 30px;
+    margin-left: 570px;
+    margin-top: -8px;
+}
+
+.imgAggComprobante {
+    position: absolute;
+    width: 30px;
+    margin-left: 460px;
+    margin-top: -8px;
+}
+
+.selector{
+    width: 180px;
+}
+
+
+/*----------------------LISTAR PRODUCTOS---------------------*/
+
+.containerListarAgg { /* Contenedor Padre */
+    width: 620px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 10px;
+    margin-top: -15px;
+    border: 1px solid #e1e1e1;
+
+  
+}
+
+.fontTtitle{ /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+}
+
+.table-orientacion {
+    margin-top: 5px; 
+    width: 619px;
+    background-color: #1f2553;
+}
+
+.iconos-listar{
+  width: 15px;
+}
+
+
+
+
+.pag{
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    margin-top: 15px;
+    margin-left: 450px;
+}
+
+.pag .page-link {
+  color: #ffffff; /* Cambia el color del texto a rojo */
+  background-color: #1f2553; /* Cambia el color de fondo a amarillo */
+  border-color: #1f2553; /* Cambia el color del borde a rojo (si es necesario) */
+}
+
+.icons {
+    display: flex;
+    justify-content:space-around;
+   
+}
+
+  table.table-orientacion .camposListar {
+    color: #1f2553;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    
+  }
+
+  table.table-orientacion .containerListarAgg{
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+
+  }
+
+  /*CONTENEDOR FILE Y DOWLOWAD PARA COMPROBANTE DE PAGO  */
+
+  .contenedorArchivo {
+    width: 170px;
+    height: 120px;
+    margin-left: -210px;
+    margin-top: 90px;
+    /* background-color: #34ed5f; */
+  }
+  
+  #descargar-btn {
+    display: flex;
+    margin-top: 30px;
+    margin-left:20px;
+    background-color: #ffffff;
+    width: 200px;
+    height: 40px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid #1f2553;
+  }
+  
+  #descargar-btn:enabled {
+    background-color: #1f2553;
+    color: rgb(255, 255, 255);
+    
+  }
+
+/* FIN*/
+
+
+
+.more {
+    display: flex;
+    position: absolute;
+    margin-left: 10px;
+    background-color: #ffffff;
+    width: 140px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+  
+    margin-top: 40px;
+    border: 1px solid #1f2553;
+  }
+  
+  .more:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  
+.more2 {
+    display: flex;
+    position: absolute;
+    margin-left: 160px;
+    background-color: #ffffff;
+    width: 140px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+  
+    margin-top: 40px;
+    border: 1px solid #1f2553;
+  }
+  
+  .more2:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  }
+

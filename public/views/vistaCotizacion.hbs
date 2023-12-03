@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/estilosgeneral.css">
+   <link rel="stylesheet" href="../css/styleVistaCoti.css">
+
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+    <title>Vista cotización</title>
+</head>
+
+    <!--NAVBAR-->
+   
+  
+<body>
+   {{> header title="Cotizacion Cliente"}}
+
+    <div class="container">
+        <!-- Contenedor Padre -->
+        <h1 class="textoh1">Cotización</h1>
+        <form id="formulario">
+            <!-- Tu contenido del formulario va aquí -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="nombreInsumo" class="form-label fontTtitle">Nombre del cliente:</label>
+                        <input type="text" class="form-control" id="nombreInsumo" value="Sara Rodriguez" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="fechaCompra" class="form-label fontTtitle">Fecha</label>
+                        <input type="text" class="form-control" id="fecha" value="2023-11-10" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="numCompra" class="form-label fontTtitle">Nombre del producto:</label>
+                        <input type="text" class="form-control btnInput" id="numCompra" value="Guantes para moto" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="cantidadI" class="form-label fontTtitle">Cantidad</label>
+                        <input type="text" class="form-control btnInput" id="cantidadI" value="20" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="imagenInsumo" class="form-label fontTtitle">Imagen de lo que desea:</label>
+                        <!-- Puedes mostrar una imagen de muestra aquí -->
+                        <img src="/assets/img/moto.jpg" alt="Imagen de muestra" class="form-control" style="height: 150px;" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="descripcion" class="form-label fontTtitle">Descripción</label>
+                        <textarea class="form-control" id="descripcion" rows="4" readonly>Quiero unos guantes de lana que generen calefacción y que todos los pares sean talla M y negros</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <a href="/listarCotizacion">
+                    <button type="button" class="btn btn-Regresar">Regresar</button>
+                </a>
+            </div>
+            <button type="button" class="btn btnEditar" onclick="habilitarEdicion()">Editar</button>
+        </form>
+    </div>
+
+   
+
+
+{{> footer }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+   
+</body>
+
+
+</html>

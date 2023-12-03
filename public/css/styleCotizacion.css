@@ -1,0 +1,224 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.container { /* Contenedor Padre */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centro los elementos horizontalmente */
+    width: 820px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.textoh1 { /* Título para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 25pt;
+    margin-bottom: 20px; /* Ajusta el margen inferior */
+    margin-top: 20px; /* Ajusta el margen superior */
+    font-weight: bold;
+    padding-left: 30px;
+}
+
+.formularioInt { /* Formulario estilos */
+    width: 820; /* Se cambió de 900px a 100% */
+    margin-top: 20px; /* Ajusta el margen superior */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centro los elementos horizontalmente */
+    padding-top: 20px;
+    padding-left: 30px; /* Ajusta el margen izquierdo */
+    margin-right: 30px; /* Ajusta el margen derecho */
+}
+
+.row {
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en la fila */
+    margin-bottom: 14px; /* Ajusta el margen inferior */
+}
+
+.col-md-4 {
+    flex: 1 0 30%; /* Establece el ancho máximo de las columnas */
+}
+
+.btnWrapper {
+    position: absolute;
+    display:block;
+    justify-content: center;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+
+.btnCancelar {
+    background-color: #1f2553;
+    color: #f7f7f7;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 10px;
+    padding: px 30px;
+    cursor: pointer;
+    margin-left: 200px;
+}
+
+.btnGuardar {
+    background-color: #1f2553;
+    color: #f7f7f7;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    margin-right: 200px;
+}
+.btnGuardar:hover,
+.btnCancelar:hover {
+    background-color: #e1e1e1;
+    color: #1f2553;
+    border: 2px solid #1f2553;
+}
+
+
+
+
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 90px; /* Ajusta según sea necesario */
+}
+
+.btnAgregar,
+.btnEliminar {
+    background-color: #dadceb;
+    color: #f7f7f7;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 12px;
+    padding: 2px 16px;
+    cursor: pointer;
+}
+
+.btnAgregar:hover,
+.btnEliminar:hover {
+    background-color: rgb(234, 234, 234);
+    color: #1a2cb9;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.color-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.color-table th, .color-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.color-table th {
+    background-color: #f2f2f2;
+}
+
+.color-table td:last-child {
+    text-align: center;
+}
+
+.btn-edit, .btn-delete {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+
+
+
+
+.btnInput {
+    border: 1px solid #ced4da;
+}
+
+/* Estilo para entrada válida */
+.btnInput.valido {
+    border: 3px solid #34ed5f;
+}
+
+/* Estilo para entrada inválida */
+.btnInput.invalido {
+    border: 3px solid #dc3545;
+}
+
+/* Estilo para mensaje de error */
+
+#mensajeError {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+#mensajeErrorCliente {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+
+}
+
+
+#mensajeErrorProducto{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+
+}
+
+#mensajeErrorCantidadII{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+
+}
+
+#mensajeErrorDescripcion{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+
+}
+
+

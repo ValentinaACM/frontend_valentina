@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilosgeneral.css">
+  <link rel="stylesheet" href="../css/styleproveedores.css">
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+
+
+  <title>Proveedores</title>
+</head>
+{{> header title="Proveedores"}}
+<!--NAVBAR-->
+
+
+<body class="bodybg">
+
+
+  <div class="container"> <!--Contenedor Padre-->
+
+
+    <form class="formularioInt">
+      <!--Contenedor Hijo (AQUÍ ESTÁ NETAMENTE EL FORMULARIO)-->
+
+      <h1 class="textoh1">Registrar Proveedor</h1>
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="mb-3 form-group">
+            <label for="nombreProveedor" class="form-label fontTtitle">Nombre del Proveedor<span class="text-danger">*
+              </span></label>
+            <input type="text" class="form-control btnInput" name="nombreProveedor" id="nombreProveedor"
+              oninput="validarNombreProveedor()">
+            <div id="mensajeError" class="mensajeError"></div>
+          </div>
+
+          <div class="mb-4 form-group">
+            <label for="nit" class="form-label fontTtitle">Nit<span class="text-danger">*
+              </span></label>
+            <input type="text" class="form-control btnInput" name="nit" id="nit" oninput="validarNIT()">
+            <div id="mensajeErrorNit" class="mensajeError"></div>
+          </div>
+
+          <div class="mb-4 form-group">
+            <label for="direccion" class="form-label fontTtitle">Dirección<span class="text-danger">*
+              </span></label>
+            <input type="text" class="form-control btnInput" name="direccion" id="direccion"
+              oninput="validarDireccion()">
+            <div id="mensajeErrorDireccion" class="mensajeError"></div>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="col-md-6">
+          <div class="mb-3 form-group">
+            <label for="correo" class="form-label fontTtitle">Correo<span class="text-danger">*
+              </span></label>
+            <input type="text" class="form-control btnInput" name="correo" id="correo" oninput="validarCorreo()">
+            <div id="mensajeErrorCorreo" class="mensajeError"></div>
+          </div>
+
+          <div class="mb-4 form-group">
+            <label for="nombreContacto" class="form-label fontTtitle">Nombre Del Contacto<span
+                class="text-danger">*</span></label>
+            <input type="txt" class="form-control btnInput" name="nombreContacto" id="nombreContacto"
+              oninput="validarNombreContacto()">
+            <div id="mensajeErrorcontacto" class="mensajeError"></div>
+          </div>
+
+          <div class="mb-4 form-group">
+            <label for="numerocontacto" class="form-label fontTtitle">Numero Del Contacto<span
+                class="text-danger">*</span></label>
+            <input type="text" class="form-control btnInput" name="numerocontacto" id="numerocontacto"
+              oninput="validarNumeroContacto()">
+            <div id="mensajeErrorTelefono" class="mensajeError"></div>
+          </div>
+
+
+
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+      <button type="button" class="btn btnGuardar" onclick="mostrarModal()">Guardar</button>
+      <button type="button" class="btn btnCancelar" data-bs-toggle="modal" data-bs-target="#mimodal">cancelar</button>
+      <!--modal para asegurarse de guardar-->
+      <div class="modal" tabindex="-1" id="miModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Tu Formulario ha sido guardado exitosamente</p>
+            </div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-primary " id="btnAceptar">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <!--modal para cancelar-->
+  <div class="modal" tabindex="-1" id="mimodal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Estás seguro de que deseas cancelar?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnCancelar"
+            onclick="realizarAccionCancelar()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="search">
+
+    <form class="d-flex" role="search">
+      <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">
+      <!-- Para modificar el tamaño del logo icono ".icono-search"  y para modificar la orientacion de este ".boton-search" -->
+      <button class="btn btn-outline-secondary boton-search" type="submit"><img src="../img/search.ico" alt="search"
+          class="icono-search"></button>
+    </form>
+
+
+  </div>
+  <!--LISTADOS-->
+
+  <div class="containerListar">
+
+    <div class="container2">
+
+      <h2 class="textoh1 mt-3">Listado Provedores</h2>
+
+
+      <!-- <hr class="lineaHorizontal"> -->
+
+      <table class="table table-orientacion">
+        <thead>
+          <tr>
+          
+            <td scope="col" class="camposListar">Nombre Proveedor</td>
+            <td scope="col" class="camposListar">Nit</td>
+            <td scope="col" class="camposListar">Direccion</td>
+            <td scope="col" class="camposListar">Correo</td>
+            <td scope="col" class="camposListar">Estado</td>
+            <td scope="col" class="text-center camposListar">operaciones</td>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td class="datosListar">Telas e Hilos Juanchis</td>
+            <td class="datosListar">10420669-9</td>
+            <td class="datosListar">cra 55·40-23</td>
+            <td class="datosListar">telasehilo3456gmail.com</td>
+            <td class="datosListar">Activo</td>
+
+            <!--BOTONES DE OPERACION-->
+            <td class="icons">
+              <div>
+                <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button>
+              </div>
+
+              <div>
+                <a href="/visualizarproveedor">
+                  <button type="button" class="btn">
+                    <img src="../img/show.ico" alt="" class="iconos-listar">
+                  </button>
+                </a>
+              </div>
+
+              <div>
+
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modaleliminar"> <img
+                    src="../img/delete.ico" alt="" class="iconos-listar"></button>
+              </div>
+
+              <div class="form-check form-switch checkeo">
+                <input class="form-check-input btn-switch" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+
+            </td>
+            <!--FIN BOTONES DE OPERACION-->
+            <div class="modal" tabindex="-1" id="modalestado">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Cambio De Estado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Se ha cambiado el estado</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--modal del eliminar-->
+            <div class="modal" tabindex="-1" id="modaleliminar">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirmación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btnCancelar"
+                      onclick="realizarAccionCancelar()">Confirmar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </tr>
+
+          <tr>
+        
+            <td class="datosListar">tintas la malvina</td>
+            <td class="datosListar">56748392-9</td>
+            <td class="datosListar">cr67·45-98</td>
+            <td class="datosListar">malvinatinas@gmail.com</td>
+            <td class="datosListar">Activo</td>
+            <!--BOTONES DE OPERACION-->
+            <td class="icons">
+              <div>
+                <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn"> <img src="../img/show.ico" alt="" class="iconos-listar"> </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn"> <img src="../img/delete.ico" alt="" class="iconos-listar"></button>
+              </div>
+
+              <div class="form-check form-switch checkeo">
+                <input class="form-check-input btn-switch " type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+            </td>
+            <!--FIN BOTONES DE OPERACION-->
+
+          </tr>
+          <tr>
+            
+            <td class="datosListar">Botones la abuelita</td>
+            <td class="datosListar">56748399-8</td>
+            <td class="datosListar">cr54#78-94</td>
+            <td class="datosListar">botabue@gmail.com</td>
+            <td class="datosListar">Activo</td>
+            <!--BOTONES DE OPERACION-->
+
+
+
+
+
+
+
+            <td class="icons">
+              <div>
+                <button type="button" class="btn"> <img src="../img/pencil.ico" alt="" class="iconos-listar"> </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn"> <img src="../img/show.ico" alt="" class="iconos-listar"> </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn"> <img src="../img/delete.ico" alt="" class="iconos-listar"></button>
+              </div>
+              <div class="form-check form-switch checkeo">
+                <input class="form-check-input btn-switch" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+            </td>
+
+            <!--modal para el cambio de estado del switch-->
+
+            <div class="modal" tabindex="-1" id="modalestado">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Deseas cambiar el estado</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            <!--FIN BOTONES DE OPERACION-->
+
+          </tr>
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example" class="pag">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link">&laquo;</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
+  {{> footer }}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../js/validacionesproveedores.js"></script>
+  <script src="../js/funcionesprov.js"></script>
+
+</body>
+
+
+</html>

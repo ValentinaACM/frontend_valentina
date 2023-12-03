@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/estilosgeneral.css">
+   <link rel="stylesheet" href="../css/styleCompras.css">
+   <link rel="stylesheet" href="../css/styleListarCompra.css">
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  </style>
+
+    <title>Document</title>
+</head>
+
+
+<body>
+    {{> header title="Compras"}}
+
+<!--FORMULARIO-->
+<div class="container">
+  <!-- Encabezado de Compra -->
+  <h1 class="textoh1">Registrar una compra</h1>
+
+  <!-- Insumos -->
+  <div class="tablainsumos-container">
+      <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar insumo...">
+          <button class="btn btnBuscarInsumo" onclick="searchTable()">Buscar</button>
+      </div>
+
+      <table id="insumos-table">
+          <thead>
+              <tr>
+                  <th>Insumo</th>
+                  <th>Cantidad</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Insumo 1</td>
+                  <td><input type="number"></td>
+                  <td><button class="btn btnEliminarInsumo" onclick="eliminarInsumo(1)">Eliminar</button></td>
+              </tr>
+              <tr>
+                  <td>Insumo 2</td>
+                  <td><input type="number"></td>
+                  <td><button class="btn btnEliminarInsumo" onclick="eliminarInsumo(2)">Eliminar</button></td>
+              </tr>
+              <tr>
+                  <td>Insumo 3</td>
+                  <td><input type="number"></td>
+                  <td><button class="btn btnEliminarInsumo" onclick="eliminarInsumo(3)">Eliminar</button></td>
+              </tr>
+          </tbody>
+      </table>
+
+      <div class="add-container">
+          <input type="text" id="add-input" placeholder="Agregar insumo...">
+          <button class="btn btnAgregarInsumo" onclick="agregarInsumo()">Agregar</button>
+      </div>
+  </div>
+
+  <!-- Sección de Formulario -->
+  <form class="formularioInt">
+      <div class="row">
+          <!-- Fecha -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="fechaCompra" class="form-label fontTtitle">Fecha <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control btnInput" name="fechaCompra" id="fechaCompra" oninput="validarFecha()">
+              </div>
+              <div id="mensajeErrorFecha" class="mensajeErrorFecha"></div>
+          </div>
+
+          <!-- Proveedor -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="proveedor" class="form-label fontTtitle">Proveedor <span class="text-danger">*</span></label>
+                  <select class="form-select" aria-label="Default select example">
+                      <option selected></option>
+                      <option value="1">BarahClothes</option>
+                      <option value="2">Distribuidora SAS</option>
+                      <option value="3">Gildan</option>
+                      <option value="4">Disatex</option>
+                      <option value="5">Insutex</option>
+                  </select>
+              </div>
+          </div>
+
+          <!-- Recibo -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="recibo" class="form-label fontTtitle">Num Recibo <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control btnInput" name="recibo" id="recibo" oninput="validarRecibo()">
+              </div>
+              <div id="mensajeErrorRecibo" class="mensajeErrorRecibo"></div>
+          </div>
+      </div>
+
+      <div class="row">
+          <!-- $IVA -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="IVA" class="form-label fontTtitle">$IVA <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control btnInput" name="IVA" id="IVA" oninput="validarIVA()">
+              </div>
+              <div id="mensajeErrorIVA" class="mensajeErrorIVA"></div>
+          </div>
+
+          <!-- Imagen Recibo -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="imagenInsumo" class="form-label fontTtitle">Imagen Recibo</label>
+                  <input type="file" class="form-control btnInput" id="imagenInsumo" accept="image/*">
+              </div>
+          </div>
+
+          <!-- Total -->
+          <div class="col-md-4">
+              <div class="mb-4 form-group">
+                  <label for="total" class="form-label fontTtitle">Total <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control btnInput" name="total" id="total" oninput="validarTotal()">
+              </div>
+              <div id="mensajeErrorTotal" class="mensajeErrorTotal"></div>
+          </div>
+      </div>
+
+  
+              <div class="btnContainer">
+                  <div class="btnWrapper">
+                      <button type="submit" class="btn btnCancelar">Cancelar</button>
+                      <button type="button" class="btn btnGuardar" data-bs-toggle="modal" data-bs-target="#miModal">Guardar</button>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Modal para vista (no funcional) -->
+          <div class="modal" tabindex="-1" id="miModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Compra registrada correctamente</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Tu compra ha sido registrada correctamente.</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+
+
+    
+
+   <main class="mb-5">
+
+    <div class="search">
+        
+        <form class="d-flex" role="search">
+             <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">    
+              <!-- Para modificar el tamaño del logo icono ".icono-search"  y para modificar la orientacion de este ".boton-search" -->
+              <button class="btn btn-outline-secondary boton-search" type="submit"><img src="/assets/img/search.ico" alt="search"  class="icono-search"></button>
+        </form>
+
+
+    </div>
+
+
+    <div class="">
+      <a href="/compras">
+          <button type="button" class="btn btn-light more">+ Agregar</button>
+      </a>
+  </div>
+
+<div class="container">
+
+        <div class="container2"> <!--Contenedor tipo encabezado, para el titulo-->
+
+                <h2 class="fontTtitle mt-3">Listado Compras</h2>
+
+                <table class="table table-orientacion">
+                    <thead>
+                      <tr>
+                        <td scope="col">ID</td>
+                        <td scope="col" class="camposListar">Fecha</td>
+                        <td scope="col" class="camposListar">Proveedor</td>
+                        <td scope="col" class="camposListar">Cantidad</td>
+                        <td scope="col" class="text-center camposListar">operaciones</td>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="datosListar">0001</th>
+                        <td class="datosListar">09/11/2023</td>
+                        <td class="datosListar">BarahClothes</td>
+                        <td class="datosListar">3</td>
+                        <td class="icons"> 
+
+                          
+
+                                <!--BOTONES SIN LA MODAL, ASÍ SE USARÁN NORMALMENTE-->
+                                <div>   <a href="/editarCompra"> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                                <div>   <a href="/visualizarCompra"> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                                    <div>    <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+                                  
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="datosListar">0002</th>
+                        <td class="datosListar">09/12/2020</td>
+                        <td class="datosListar">Insutex</td>
+                        <td class="datosListar">2</td>
+                        <td class="icons"
+                        
+                        > 
+                          <div>   <a href=""> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                                <div>   <a href=""> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                                    <div>    <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+                                   
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="datosListar">0004</th>
+                        <td class="datosListar">01/04/2022</td>
+                        <td class="datosListar">Gildan</td>
+                        <td class="datosListar">4</td>
+                        <td class="icons"> 
+
+
+                          <div>   <a href=""> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                                <div>   <a href=""> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                                    <div>    <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+                                    
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="datosListar">0005</th>
+                        <td class="datosListar">13/10/2023</td>
+                        <td class="datosListar">Disatex</td>
+                        <td class="datosListar">2</td>
+                        <td class="icons"> 
+
+
+                          <div>   <a href=""> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>
+                                <div>   <a href=""> <img src="../img/show.ico" alt="" class="iconos-listar"></a></div>
+                                    <div>    <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a></div>
+                                    
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <nav aria-label="Page navigation example" class="pag">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item disabled">
+                        <a class="page-link">&laquo;</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">&raquo;</a>
+                      </li>
+                    </ul>
+                  </nav>
+
+        </div>
+        
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function searchTable() {
+        // Aquí va tu código para buscar en la tabla
+    }
+
+    function eliminarInsumo(id) {
+        var table = document.getElementById("insumos-table");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var rowData = row.getElementsByTagName("td");
+
+            // Verifica si el primer dato de la fila es igual al ID proporcionado
+            if (rowData[0].innerText === "Insumo " + id) {
+                row.remove();
+                console.log("Insumo con ID", id, "eliminado.");
+                break;
+            }
+        }
+    }
+
+    function agregarInsumo() {
+        var input = document.getElementById("add-input");
+        var insumo = input.value;
+
+        if (insumo !== "") {
+            var table = document.getElementById("insumos-table");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.innerHTML = insumo;
+            cell2.innerHTML = '<button onclick="eliminarInsumo()">Eliminar</button>';
+
+            console.log("Insumo agregado:", insumo);
+
+            input.value = ""; // Limpia el campo de entrada
+        }
+    }
+</script>
+
+  
+
+   
+
+    
+   
+{{> footer }}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="../js/validarCompras.js"></script>
+</body>
+
+</html>

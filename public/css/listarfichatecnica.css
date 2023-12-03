@@ -1,0 +1,182 @@
+
+
+
+
+body {
+
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .container {
+    /* Contenedor Padre */
+    width: 1200px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 11px 1px rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+  }
+  
+  
+  .fontTtitle {
+    /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+  }
+  
+  .container2 {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .table-orientacion {
+    margin-top: 40px;
+  }
+  
+  .iconos-listar {
+    width: 13px;
+  }
+  
+  
+  .pag {
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+  }
+  
+  .pag .page-link {
+    color: #ffffff;
+    /* Cambia el color del texto a rojo */
+    background-color: #1f2553;
+    /* Cambia el color de fondo a amarillo */
+    border-color: #1f2553;
+    /* Cambia el color del borde a rojo (si es necesario) */
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .search {
+    width: 350px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin-bottom: -40px;
+  
+  }
+  
+  .boton-search {
+    background-color: #ffffff;
+    display: flex;
+    width: 25px;
+    height: 35px;
+    margin-top: 13px;
+    box-shadow: 8px 0 11px -1px rgba(0, 0, 0, 0.2);
+    border: 2px solid #1f2553;
+  
+  }
+  
+  .campo-search {
+    display: flex;
+    width: 260px;
+    height: 39px;
+    margin-top: 10px;
+    border: 2px solid #1f2553;
+  
+  }
+  
+  .campo-search:focus {
+    outline: 2px solid #1f2553;
+  }
+  
+  .icono-search {
+    display: flex;
+    width: 20px;
+    margin-left: -10px;
+    margin-top: -2.5px;
+  
+  }
+  
+  .btnagregar {
+    display: flex;
+    position: absolute;
+    margin-right: 200px;
+    background-color: #ffffff;
+    width: 153px;
+    font-size: 12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+  
+    margin-left: 630px;
+    margin-top: -10px;
+    border: 1px solid #1f2553;
+  }
+  
+  .btnagregar:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  
+  
+  }
+  
+  
+  
+  table.table-orientacion .camposListar {
+    color: #1f2553;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  
+  }
+  
+  table.table-orientacion .datosListar {
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+  
+  }
+  
+  .modal-content.mi-modal {
+    width: 700px !important;
+    height: 500px !important;
+  }
+  
+  .row {
+    margin-left: 10px;
+    margin-top: 0;
+    padding-top: 0%;
+  
+  }
+  
+  .container-fluid {
+    margin-top: 0;
+    padding-top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .input-group>.form-control{
+    width: 600px;
+    height: 38px;
+    margin-top: 2px;
+    margin-left: 10px;
+  }
+  
+  .input-group{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+  

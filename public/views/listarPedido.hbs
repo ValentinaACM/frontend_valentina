@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styleListarPedido.css">
+    <link rel="stylesheet" href="../css/estilosgeneral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    </style>
+
+    <title>Listar Pedido</title>
+</head>
+<body>
+
+  {{> header title="Pedido"}}
+  
+        <div class="search">
+            
+            <form class="d-flex" role="search">
+                 <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">    
+                  <!-- Para modificar el tamaño del logo icono ".icono-search"  y para modificar la orientacion de este ".boton-search" -->
+                  <button class="btn btn-outline-secondary boton-search" type="submit"><img src="../img/search.ico" alt="search"  class="icono-search"></button>
+            </form>
+
+        </div>
+
+
+        <div class="">
+           <a href="/agregarPedido"><button type="button" class="btn btn-light more">+ Agregar</button> </a> 
+        </div>
+ 
+    <div class="container">
+
+            <div class="container2"> <!--Contenedor tipo encabezado, para el titulo-->
+
+                    <h2 class="fontTtitle mt-3">Listado Pedidos</h2>
+
+                    <table class="table table-orientacion ">
+                        <thead >
+                          <tr>
+                            <td scope="col" class="camposListar">Num Pedido</td>
+                            <td scope="col" class="camposListar">Nombre Cliente</td>
+                            <td scope="col" class="camposListar">Fecha Pedido</td>
+                            <td scope="col" class="camposListar">Forma Pago</td>
+                            <td scope="col" class="camposListar">Total Pago</td>
+                            <td scope="col" class="camposListar">Estado</td>
+                            <td scope="col" class="text-center camposListar">operaciones</td>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="datosListar">4401</th>
+                            <td class="datosListar">Juan Muñoz</td>
+                            <td class="datosListar">09/11/2023</td>
+                            <td class="datosListar">Bancolombia</td>
+                            <td class="datosListar">145.000</td>
+                            <td class="datosListar">Revisión</td>
+                            <td class="icons"> 
+
+                                    <!--BOTONES SIN LA MODAL, ASÍ SE USARÁN NORMALMENTE--> 
+                                    <div> <a href="/editarPedido"> <img src="../img/pencil.ico" alt="" class="iconos-listar "></a></div>                             
+                                    <div> <a href="/visualizarPedido"> <img src="..//img/show.ico" alt="" class="iconos-listar "></a>  </div>
+                                    <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar "></a>  </div>
+                                       
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row" class="datosListar">4402</th>
+                            <td class="datosListar">Esteban Muñoz</td>
+                            <td class="datosListar">29/10/2023</td>
+                            <td class="datosListar">Nequi</td>
+                            <td class="datosListar">25.000</td>
+                            <td class="datosListar">Aprobado</td>
+                            <td class="icons"> 
+
+                                <div> <a href="/editarPedido"> <img src="../img/pencil.ico" alt="" class="iconos-listar "></a></div>                             
+                                <div> <a href="/editarPedido"> <img src="..//img/show.ico" alt="" class="iconos-listar "></a> </div>
+                                <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar "></a>  </div>
+                            
+
+                            </td>
+
+                          </tr>
+                          <tr>
+                            <th scope="row" class="datosListar">4403</th>
+                            <td class="datosListar" >Jhon Muñoz</td>
+                            <td class="datosListar">14/09/2023</td>
+                            <td class="datosListar">Bancolombia</td>
+                            <td class="datosListar">10
+                            <td class="datosListar">Aprobado</td>
+                            <td class="icons"> 
+
+                                  <div> <a href="/editarPedido"> <img src="../img/pencil.ico" alt="" class="iconos-listar"></a></div>                             
+                                  <div> <a href="/editarPedido"> <img src="..//img/show.ico" alt="" class="iconos-listar "></a>  </div>
+                                  <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar "></a>  </div>
+
+                            </td>
+
+                          </tr>
+
+                          <tr>
+                            <th scope="row" class="datosListar">4404</th>
+                            <td class="datosListar" >Katherin Berrio</td>
+                            <td class="datosListar">09/11/2023</td>
+                            <td class="datosListar">Nequi</td>
+                            <td class="datosListar">150.000</td>
+                            <td class="datosListar">Revisión</td>
+                            <td class="icons"> 
+
+                                  <div> <a href="/editarPedido"> <img src="../img/pencil.ico" alt="" class="iconos-listar "></a></div>                             
+                                    <div> <a href="/editarPedido"> <img src="..//img/show.ico" alt="" class="iconos-listar "></a>  </div>
+                                    <div> <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar"></a>  </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row" class="datosListar align-baseline">4405</th>
+                            <td class="datosListar" >Sandra Benitez</td>
+                            <td class="datosListar">15/10/2023</td>
+                            <td class="datosListar">Nequi</td>
+                            <td class="datosListar">20.000</td>
+                            <td class="datosListar">Cancelado</td>
+                            <td class="icons"> 
+                                        <div>    <a href="/editarPedido"> <img src="../img/pencil.ico" alt="" class="iconos-listar "></a></div>
+                                        <div>   <a href="/agregarPedido"> <img src="../img/show.ico" alt="" class="iconos-listar "></a></div>
+                                        <div>    <a href=""> <img src="../img/delete.ico" alt="" class="iconos-listar "></a></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <nav aria-label="Page navigation example" class="pag">
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item disabled">
+                            <a class="page-link">&laquo;</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">&raquo;</a>
+                          </li>
+                        </ul>
+                      </nav>
+
+            </div>
+            
+    </div>
+
+
+
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="../js/listarPedido.js"></script>
+    <script src="../js/validarFormularioPedido.js"></script>
+
+
+    {{> footer }}
+</body>
+</html>

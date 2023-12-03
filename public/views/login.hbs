@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <title>Dosi</title>
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title p-b-43">
+                        Iniciar Sesión
+                    </span>
+
+                    <label for="correoElectronico" class="form-label fontTtitle">
+                        <h5 class="txt1">Correo Electronico <span class="text-danger">*</span></h5>
+                    </label>
+                    <input class="form-control btnInput" type="text" name="correoElectronico" id="correoElectronico"
+                        oninput="validarCorreo()">
+                    <div id="mensajeErrorCorreo" class="mensajeError"></div>
+
+                    <label for="contraseña" class="form-label fontTtitle">
+                        <h5 class="txt1">Contraseña <span class="text-danger">*</span></h5>
+                    </label>
+                    <input class="form-control btnInput" type="password" name="password" id="password"
+                        oninput="validarContraseña()">
+                    <div id="mensajeErrorContraseña" class="mensajeError"></div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div class="contact100-form-checkbox">
+                            <input class="form-check-input" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox txt1" for="ckb1">
+                                Recordarme
+                            </label>
+                        </div>
+
+                        <div>
+                            <a class="txt1 mx-5" href="olvidasteContraseña.html">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#loginModal" id="loginButton" onclick="modalLogin()">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-46 p-b-20">
+                        <a href="registrate.html" class="txt2"> Registrarse </a>
+                        <span> o</span>
+                        <a href="/" class="txt2"> Cancelar</a>
+                    </div>
+                </form>
+
+                <div class="login100-more" style="background-image: url('../img/Background.svg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Inicio Exitoso -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Inicio Exitoso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Bienvenido! Has iniciado sesión correctamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/funcioneslogin.js"></script>
+    <script src="../js/validacionlogin.js"></script>
+    <!-- Agrega esto antes de cerrar la etiqueta </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-O4TnYuAT+U8PC1h1vA4bUQTbL6rU5lA0M/M9szA2IeV4K478qD4GgEQF4gNm/s"
+        crossorigin="anonymous"></script>
+    <script>
+        function modalLogin() {
+    // Aquí puedes agregar lógica adicional si es necesario
+    // Por ejemplo, redirección a otra página o ejecutar alguna acción específica
+    alert('¡Bienvenido! Has iniciado sesión correctamente.');
+    //Rediciona a la pagina principal
+    // window.location.href = "";
+    // Cierra el modal después de realizar la acción
+    var miModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    miModal.hide();
+}
+    </script>
+
+</body>
+
+</html>

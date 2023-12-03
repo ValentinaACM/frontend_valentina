@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilosgeneral.css">
+    <link rel="stylesheet" href="../css/styleCotizacion.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+<!--Navbar-->
+<!--Cierre Navbar-->
+{{> header title="Cotizacion"}}
+
+
+
+    <!--FORMULARIO-->
+
+
+    <div class="container">
+        <!-- Contenedor Padre -->
+        <h1 class="textoh1">Cotización</h1>
+        <form class="formularioInt">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="nombreCliente" class="form-label fontTtitle">Nombre del cliente <span class= "text-danger">*</span><label>
+                        <input type="text" class="form-control btnInput" name="nombreCliente" id="nombreCliente" oninput="validarNomCliente()">
+                    </div>
+                    <div id="mensajeErrorCliente" class="mensajeErrorCliente"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="fechaCot" class="form-label fontTtitle">Fecha <span class= "text-danger">*</span></label>
+                        <input type="date" class="form-control btnInput" name="fechaCot" id="fechaCot" oninput="validarFechaCot()">
+                    </div>
+                    <div id="mensajeError" class="mensajeError"></div>
+                </div>
+            </div>
+
+            <!-- Agregado un contenedor div para cada grupo de 3 columnas -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="nombreProductoCot" class="form-label fontTtitle">Nombre del producto: <span class= "text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="nombreProductoCot" id="nombreProductoCot" oninput="validarProductoCot()">
+                    </div>
+                    <div id="mensajeErrorProducto" class="mensajeErrorProducto"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3 form-group">
+                        <label for="cantidadII" class="form-label fontTtitle">Cantidad <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="cantidadII" id="cantidadII" oninput="validarCantidadII()">
+                    </div>
+                    <div id="mensajeErrorCantidadII" class="mensajeErrorCantidadII"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="imagenProducto" class="form-label fontTtitle">Imagen de lo que desea:</label>
+                        <input type="file" class="form-control btnInput" id="imagenPorducto" accept="image/*">
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4 form-group">
+                        <label for="descripcion" class="form-label fontTtitle">Descripción <span class= "text-danger">*</span></label>
+                        <textarea class="form-control" name="descripcion"   id="descripcion" rows="4"></textarea oninput="validarDescripcion()">
+                    </div>
+                    <div id="mensajeErrorDescripcion" class="mensajeErrorDescripcion"></div>
+                </div>
+            </div>
+
+            <div class="btnContainer">
+                <div class="btnWrapper">
+                <button type="submit" class="btn btnCancelar">Cancelar</button>
+                <!-- Agregar este botón al final del formulario -->
+
+                <button type="button" class="btn btnGuardar" data-bs-toggle="modal" data-bs-target="#miModal">Guardar</button>
+            </div>
+        </div>
+    
+
+        <!-- Modal para vista (no funcional) -->
+        <div class="modal" tabindex="-1" id="miModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cotización enviada correctamente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tu cotización ha sido enviada a la tienda.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+{{> footer }}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/validarCotizacion.js"></script>
+   
+   
+
+
+
+
+
+
+</body>
+
+</html>

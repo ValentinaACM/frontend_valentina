@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/validacionesmodulosJuan.css">
+    <link rel="stylesheet" href="css/estilosGenericos.css">
+    <title>Registrar Insumo</title>
+</head>
+
+<body class="bodybg" onload="listarCategoriasInsumos()">
+    {{> header title="Categoría Insumos"}}
+    <div class="containerBueno">
+        <form class="formularioInt">
+            <h1 class="textoh1" id="texto-principal">Registrar Categoría Insumo</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="idCatInsumo" hidden>
+                    <div class="form-group">
+                        <label for="nomCatInsumo" class="form-label fontTtitle">Nombre Categoría Insumo <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control btnInput" name="nomCatInsumo" id="nomCatInsumo" oninput="validarNombreCatInsumo()">
+                        <div id="mensajeError"></div>
+                    </div>
+                    <div class=" mt-3 mb-3">
+                        <label for="detalleCatInsumo" class="form-label fontTtitle">Descripción <span class="text-danger">*</span></label>
+                        <textarea class="form-control btnInput" name="detalleCatInsumo" id="detalleCatInsumo" rows="3" style="height: 180px; width:800px; resize: none;" oninput="validarDetalleCatInsumo()"></textarea>
+                        <div id="mensajeErrorDetalle"></div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btnLimpiar">Limpiar</button>
+            <button type="button" class="btn btnCancelar">Cancelar</button>
+            <button type="button" class="btn btnGuardar" id="guardarCambiosBtn">Guardar cambios</button>
+            <br>
+        </form>
+    </div>
+    <div class="containerBueno">
+        <h2 class="textoh1 mt-3">Listado Categoria Insumos</h2>
+        <table class="table table-orientacion">
+            <thead>
+                <tr>
+                    <td scope="col" class="camposListar">Nombre</td>
+                    <td scope="col" class="camposListar">Detalle</td>
+                    <td scope="col" class="camposListar">Estado</td>
+                    <td scope="col" class="text-center camposListar" style="width: 200px;">Acciones</td>
+                </tr>
+            </thead>
+            <tbody id="contenido">
+                
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example" class="pag">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea eliminar este elemento?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmarEliminar()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega el modal de eliminación exitosa -->
+    <div class="modal fade" id="eliminadoExitosamenteModal" tabindex="-1" aria-labelledby="eliminadoExitosamenteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eliminadoExitosamenteModalLabel">Eliminación exitosa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   Se eliminó la categoria de insumo exitosamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edición Exitosa -->
+    <div class="modal fade" id="edicionExitosaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edicionExitosaLabel">Edición exitosa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>La categoría de insumo se editó exitosamente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="creacionExitosaLabel">Creación exitosa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>La categoria de insumo se creó exitosamente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="modal fade" id="confirmarCambioEstadoModal" tabindex="-1" aria-labelledby="confirmarCambioEstadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarCambioEstadoModalLabel">Confirmar cambio de estado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que deseas cambiar el estado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="cambiarEstadoCategoriaInsumo()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer }}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/categoriaInsumos.js"></script>
+</body>
+
+</html>

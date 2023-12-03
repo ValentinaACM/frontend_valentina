@@ -1,0 +1,705 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(245, 245, 245);
+    
+      overflow-x: hidden;
+    
+}
+
+.containerAgregarPedido { /* Contenedor Padre */
+    display: flex;
+    width: 990px;
+    height: 1300px; /*1200px */
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 55px;
+    margin-left: 130px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    
+   
+   
+   
+}
+
+.formularioInt  { /* Formulario estilos */
+   width: 320px;
+    height: 100%;
+   align-items: center;
+   justify-content: center;
+   padding-top: 20px;
+   padding-left: 12px;
+   margin-right: 200px;
+ 
+  
+  
+}
+
+.textoh1 { /* Título para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 25pt;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+   
+}
+
+.textoh2 { /* Subtítulo para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 18pt;
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+.textoh3 { /* Subtítulo para el formulario */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(31, 37, 83);
+    font-size: 18pt;
+    display: flex;
+    margin-top: -590px;
+    margin-left: 20px;
+    padding-top: 40px;
+    font-weight: bold;
+}
+
+.row{ /* Contenedor Hijo */
+    width: 300px; /* 100px*/
+    height: 990px;
+   margin-top: 20px;
+   margin-left:-1px;
+   background-color: rgb(245, 245, 245);
+   border-radius: 0 10px 0 10px;
+   padding-top: 40px;
+    
+ 
+   
+  
+ 
+}
+
+.fontTtitle{ /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+}
+
+.fontTtitleAggPedido{ /*Textos para los campos  */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+    margin-left:20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.fontTtitleAggPedido2{ /*Textos para los campos  */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    white-space: nowrap;
+    margin-left:400px;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.gridAggPedido{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; 
+ 
+   
+    
+}
+
+.gridAggPedido2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; 
+    
+}
+
+.btnInput {
+    width: 235px;
+   
+}
+
+.btnInput2.valido{
+    border: 2px solid #34ed5f;
+}
+.btnInput2.invalido {
+    border: 2px solid #dc3545;
+}
+
+/* Estilo para entrada válida */
+.btnInput.valido {
+    border: 2px solid #34ed5f;
+}
+
+/* Estilo para entrada inválida */
+.btnInput.invalido {
+    border: 2px solid #dc3545;
+}
+
+#mensajeError{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorCostoproducto {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorcostototal{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+#mensajeErrorprecioventa{
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+
+.btnInput2 {
+    width: 180px;
+}
+
+
+
+.row2{ /* Contenedor Hijo */
+    width: 650px;
+    height:990px;
+    margin-left: 300px;
+    margin-top: -990px;
+   ; 
+   border-radius: 10px 0 10px 0;
+ 
+
+  
+   ;
+ 
+ 
+   
+ 
+
+}
+
+.row3{ /* Contenedor Hijo */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; 
+    width: 690px;
+    height: 280px;
+   margin-top: 10px;
+   margin-left:20px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 50px;
+  
+   
+   
+
+   
+}
+
+.row4{ /* Contenedor Hijo */
+ 
+    width: 280px;
+    height: 300px;
+   margin-top: 50px;
+   margin-left:-10px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 30px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   border: 1px solid #e1e1e1;
+   
+  
+}
+
+
+
+.rowTransaccion{ /* Contenedor Hijo */
+ 
+    width:640px;
+    height: 450px;
+   margin-top: -330px;
+   margin-left:12px;
+   padding-top: 15px;
+   padding-bottom: 90px;
+   padding-right: 30px;
+   border-radius: 10px;
+   border: 1px solid #e1e1e1;
+   background-color: rgb(245, 245, 245);
+
+}
+
+
+.selectPagos {
+    margin-left: 190px;
+    margin-top: -5px;
+    width: 200px;
+}
+.contenedorImg{
+    position: absolute;
+    width: 150px; /* Puedes ajustar el tamaño del rectángulo según tus necesidades */
+    height: 150px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    
+  
+    
+   
+}
+
+.contenedorImg2{
+    position: absolute;
+    width: 380px; /* Puedes ajustar el tamaño del rectángulo según tus necesidades */
+    height: 430px;
+    margin-top: -5PX;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+  
+    
+    
+}
+
+.contenedorImg2 .imgComprobante{
+    width: 400px;
+    height: 500px;
+    display:flexbox;
+    
+    
+}
+
+.contenedorImg2:disabled{
+    border: 1px solid #e1e1e1;
+
+}
+
+.contenedorImg .imgProducto {
+    width: 150px;
+    height: auto;
+    display: block;
+
+}
+.img-return {
+    display:flex;
+    position: absolute;
+    width: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+}
+
+.imgAggProducto { /*IMAGEN DE AGREGAR UN PRODUCTO MÁS */
+    position: absolute;
+    width: 30px;
+    margin-left: 570px;
+    margin-top: -8px;
+    
+}
+
+.imgAggComprobante {
+    position: absolute;
+    width: 30px;
+    margin-left: 460px;
+    margin-top: -8px;
+}
+
+.selector{
+    width: 180px;
+}
+
+
+
+
+.containerListarAgg { /* Contenedor Padre */
+    width: 620px;
+    height: 520px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid #e1e1e1;
+    /* background-color: #001eff; */
+  
+   
+
+  
+}
+
+.fontTtitle{ /*Textos para los campos  */
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+}
+
+.table-orientacion {
+    margin-top: 40px; 
+    width: 619px;
+    background-color: #6b719d;
+}
+
+.iconos-listar{
+  width: 15px;
+}
+
+
+
+
+
+.pag{
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    margin-top: 15px;
+    margin-left: 450px;
+}
+
+.pag .page-link {
+  color: #ffffff; /* Cambia el color del texto a rojo */
+  background-color: #1f2553; /* Cambia el color de fondo a amarillo */
+  border-color: #1f2553; /* Cambia el color del borde a rojo (si es necesario) */
+}
+
+.icons {
+    display: flex;
+    justify-content:space-around;
+   
+}
+
+  table.table-orientacion .camposListar {
+    color: #1f2553;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    
+  }
+
+  table.table-orientacion .containerListarAgg{
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+
+  }
+
+  /*CONTENEDOR FILE Y DOWLOWAD PARA COMPROBANTE DE PAGO  */
+
+  .contenedorArchivo {
+    width: 170px;
+    height: 120px;
+    margin-left: -200px;
+    margin-top: 90px;
+    /* background-color: #34ed5f; */
+  }
+  
+  #descargar-btn {
+    display: flex;
+    margin-top: 30px;
+    margin-left:-15px;
+    background-color: #ffffff;
+    width: 200px;
+    height: 40px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid #1f2553;
+  }
+  
+  #descargar-btn:enabled {
+    background-color: #1f2553;
+    color: rgb(255, 255, 255);
+    
+  }
+
+/* FIN*/
+
+
+
+.more {
+    display: flex;
+    position: absolute;
+    margin-left: 10px;
+    background-color: #ffffff;
+    width: 140px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    align-items: center;
+  
+    margin-top: 40px;
+    border: 1px solid #1f2553;
+  }
+  
+  .more:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  
+.more3 {
+    display: flex;
+    position: absolute;
+    margin-left: 150px;
+    background-color: #ffffff;
+    width: 140px;
+    font-size:12pt;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f2553;
+    justify-content: center;
+    /* align-items: center; */
+     margin-top: 80px; 
+    border: 1px solid #1f2553;
+ 
+  }
+  
+  .more2:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  }
+  .more3:hover {
+    background-color: #1f2553;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+
+  .table-2{
+    margin-left: 20px;
+  }
+
+
+  .btncolor{
+    margin-left: 20px;
+    background-color:#ffffff ;
+    color: #1f2553;
+    text-align:center;
+    border: 1px solid #1f2553;
+
+}
+.btncolor:hover{
+    background-color:#1f2553 ;
+    color: #ffffff;
+    text-align:center;
+
+}
+.search {
+    width: 350px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin-bottom: -40px;
+    
+  
+  }
+  
+  .boton-search {
+    background-color: #ffffff;
+    display: flex;
+    width: 25px;
+    height: 35px;
+    margin-left: -5px;
+    margin-top: -65px;
+    box-shadow: 8px 0 11px -1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #1f2553;
+  
+  }
+  
+  .campo-search {
+    display: flex;
+    width: 200px;
+    height: 39px;
+    margin-top: -68px;
+    margin-left: 350px;
+    border: 2px solid #1f2553;
+  
+  }
+  
+  .campo-search:focus {
+    outline: 2px solid #1f2553;
+  }
+  
+  .icono-search {
+    display: flex;
+    width: 20px;
+    margin-left: -10px;
+    margin-top: -2.5px;
+  
+  }
+  .imgComprobante {
+    width: 600px;
+    height: 100%;
+    /* Ajusta la imagen para llenar completamente el contenedor sin distorsionarla */
+  }
+  .checkeo {
+    /* Agrega estilos específicos para el contenedor del switch */
+    display: flex;
+    justify-content: space-between;
+   margin-left: 30px;
+    margin-bottom: 100px; /* Ajusta según sea necesario */
+  }
+
+  .form-check-input {
+    /* Agrega estilos específicos para el switch */
+    order: -1;
+ 
+  }
+  
+  .insumos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  .btnGuardar{
+    position: absolute;
+    display: flex ;
+     margin-left: 400px; 
+    margin-top: 40px;
+    background-color: #1f2553;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+.btnCancelar {
+   
+
+  position: absolute;
+  display: flex ;
+  margin-left: 240px; 
+  margin-top: 40px;
+  background-color: #1f2553;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.btnCancelar:hover {
+  background-color: #e1e1e1;
+  color: #1f2553;
+}
+
+
+/*boton de estado*/
+.checkeo{
+  margin-top: 8px;
+  margin-left: 10px;
+}
+.form-check-input {
+  position: relative;
+  width: 50px; /* Ancho del checkbox */
+  height: 18px; /* Altura del checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #1f2553; /* Color del botón cuando no está marcado */
+  border: 1px solid #1f2553; /* Color del borde del botón cuando no está marcado */
+  border-radius: 50px; /* Asegura que el botón tenga forma de círculo */
+  transition: background-color 0.1s, border-color 0.1s;
+}
+.form-check-input:checked {
+  background-color: #008000; /* Color del botón cuando está marcado */
+  border-color: green; /* Color del borde del botón cuando está marcado */
+}
+.form-check-input::before {
+  content: '';
+  position: absolute;
+  width: 12px; /* Ancho del botón */
+  height: 12px; /* Altura del botón */
+  background-color: white; /* Color del botón */
+  border-radius: 50%; /* Asegura que el botón tenga forma de círculo */
+  left: 2.5px; /* Ajusta la posición del botón dentro del checkbox */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.1s;
+}
+.form-check-input:checked::before {
+  background-color: #008000; /* Cambia el color del botón cuando está marcado */
+}
+.form-check-input:checked:focus::before {
+  content: ''; /* Evita que aparezca un segundo círculo al hacer clic */
+}
+
+.form-check-input:focus {
+  box-shadow: none;  /* Evita el resplandor al hacer clic en el checkbox */
+}
+/*estilos de la tabla de talla*/
+.circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid black;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #646fc1;
+}
+.btnEditar{
+  position: absolute;
+  display: flex ;
+   margin-left: 550px; 
+  margin-top: 40px;
+  background-color: #1f2553;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.btnEditar:hover {
+  background-color: #e1e1e1;
+  color: #1f2553;
+}

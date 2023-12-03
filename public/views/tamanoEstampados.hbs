@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamaño estampados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilosGenericos.css">
+</head>
+
+<body class="bodybg" onload="listarTamanoTipoEstampados()">
+
+    {{> header title="Tamaño estampados"}}
+
+    <div class="containerBueno">
+        <h2 class="textoh1 mt-3" id="texto-principal">Registrar tamaño y tipo del estampado</h2>
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="idTamanoTipoEstampado" hidden>
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Tamaño estampado (cm²)</label>
+                        <input type="number" class="form-control btnInput" name="imputTamañoEstampado"
+                            id="inputTamañoEstampado" oninput="validarTamañoEstampado();calcularTotal();">
+                        <div id="mensajeErrorTamaño" class="mensajeErrorTamaño" style="color: #dc3545;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Precio por el tamaño</label>
+                        <input type="number" class="form-control btnInput" name="imputPrecioTamañoEstampado"
+                            id="inputPrecioTamañoEstampado" oninput="validarPrecioTamañoEstampado(); calcularTotal();">
+                        <div id="mensajeErrorPrecioTamaño" class="mensajeErrorPrecioTamaño"
+                            style="color: #dc3545;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Tipo estampado</label>
+                        <select class="form-control btnInput" name="inputTipoEstampado" id="inputTipoEstampado"
+                            oninput="validarTipoEstampado();">
+                            <option disabled selected>Seleccione una opción</option>
+                            <option value="Sublimación">Sublimación</option>
+                            <option value="Vinilo">Vinilo</option>
+                        </select>
+                        <div id="mensajeErrorTipoEstampado" class="mensajeErrorTipoEstampado"
+                            style="color: #dc3545;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Precio por el tipo de estampado</label>
+                        <input type="number" class="form-control btnInput" name="inputPrecioTipo" id="inputPrecioTipo"
+                            oninput="validarPrecioTipo(); calcularTotal();">
+                        <div id="mensajeErrorPrecioTipo" class="mensajeErrorPrecioTipo"
+                            style="color: #dc3545;"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Total</label>
+                        <input type="number" class="form-control btnInput" name="inputTotal" id="inputTotal" disabled>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-5">
+                    <button type="button" class="btn btnLimpiar" onclick="">Limpiar</button>
+                    <button type="button" class="btn btnCancelar" onclick="">Cancelar</button>
+                    <button type="button" class="btn btnGuardar" id="guardarCambiosBtn">Guardar cambios</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="search">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2 campo-search" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-secondary boton-search" type="submit"><img src="img/search.ico"
+                    alt="search" class="icono-search"></button>
+        </form>
+    </div>
+
+    <div class="containerBueno">
+        <h2 class="textoh1 mt-3">Listado del tamaño y tipo de estampados</h2>
+        <table id="tablaEstampados" class="table table-orientacion">
+            <thead>
+                <tr>
+                    <td scope="col" class="camposListar">Tamaño cm²</td>
+                    <td scope="col" class="camposListar">Tipo</td>
+                    <td scope="col" class="camposListar">Precio tamaño</td>
+                    <td scope="col" class="camposListar">Precio tipo</td>
+                    <td scope="col" class="camposListar">Total</td>
+                    <td scope="col" class="text-center camposListar" style="width: 100px;">Acciones</td>
+                </tr>
+            </thead>
+            <tbody id="contenido">
+
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example" class="pag">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="modal fade" id="exitoModal" tabindex="-1" aria-labelledby="exitoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exitoModalLabel">Estampado creado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha creado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exitoModalEstampadoEdit" tabindex="-1" aria-labelledby="exitoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exitoModalLabel">Estampado editado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha editado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea eliminar este tamaño y tipo de estampado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger"
+                        onclick="confirmarEliminarEstampado()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="eliminadoExitosamenteModal" tabindex="-1"
+        aria-labelledby="eliminadoExitosamenteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eliminadoExitosamenteModalLabel">Estampado eliminado exitosamente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡El estampado se ha eliminado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/tamañoEstampado.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
