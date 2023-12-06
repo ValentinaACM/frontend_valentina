@@ -139,6 +139,8 @@ document
 
 // URL de la API para obtener y manipular datos de tipo de estampado
 const url = "https://backend-valentina.onrender.com/tipoestampado";
+//const url = "http://localhost:8081/tipoEstampado";
+
 
 // Función asincrónica para listar tamaños y tipos de estampados
 const listarTamanoTipoEstampados = async () => {
@@ -173,6 +175,7 @@ const listarTamanoTipoEstampados = async () => {
           `<td>${tamañoTipoEstampado.tipo}</td>` +
           `<td>${tamañoTipoEstampado.precioTamano}</td>` +
           `<td>${tamañoTipoEstampado.precioTipo}</td>` +
+          `<td>${tamañoTipoEstampado.precioDolar}</td>` +
           `<td>${tamañoTipoEstampado.total}</td>` +
           `<td>
               <div class="btn-group" role="group" aria-label="Acciones">
@@ -254,6 +257,7 @@ const guardarCambiosEstampado = () => {
     tipo: tipoEstampado,
     precioTamano: precioTamanoEstampado,
     precioTipo: precioTipoEstampado,
+    precioTipo: precioDolar,
     total: totalEstampado,
   };
 
@@ -273,6 +277,7 @@ const guardarCambiosEstampado = () => {
       document.getElementById("inputTipoEstampado").value = "";
       document.getElementById("inputPrecioTamañoEstampado").value = "";
       document.getElementById("inputPrecioTipo").value = "";
+      document.getElementById("inputPrecioDolar").value = "";
       document.getElementById("inputTotal").value = "";
       const inputs = document.querySelectorAll(".btnInput");
       inputs.forEach((input) => {
@@ -320,6 +325,7 @@ const actualizarTamañoTipoEstampado = async () => {
     "inputPrecioTamañoEstampado"
   ).value;
   const precioTipoEstampado = document.getElementById("inputPrecioTipo").value;
+  const precioDolar = document.getElementById("inputPrecioDolar").value;
   const totalEstampado = document.getElementById("inputTotal").value;
 
   // Crear objeto con los datos actualizados
@@ -329,6 +335,7 @@ const actualizarTamañoTipoEstampado = async () => {
     tipo: tipoEstampado,
     precioTamano: precioTamanoEstampado,
     precioTipo: precioTipoEstampado,
+    precioDolar: precioDolar,
     total: totalEstampado,
   };
 
@@ -347,6 +354,7 @@ const actualizarTamañoTipoEstampado = async () => {
       document.getElementById("inputTipoEstampado").value = "";
       document.getElementById("inputPrecioTamañoEstampado").value = "";
       document.getElementById("inputPrecioTipo").value = "";
+      document.getElementById("inputPrecioDolar").value = "";
       document.getElementById("inputTotal").value = "";
       const inputs = document.querySelectorAll(".btnInput");
       inputs.forEach((input) => {
@@ -392,6 +400,8 @@ const editarTamañoTipoEstampado = (tamañoTipoEstampado) => {
     tamañoTipoEstampado.precioTamano;
   document.getElementById("inputPrecioTipo").value =
     tamañoTipoEstampado.precioTipo;
+    document.getElementById("inputPrecioDolar").value =
+    tamañoTipoEstampado.precioDolar;
   document.getElementById("inputTotal").value = tamañoTipoEstampado.total;
 
   // Cambiar el texto principal y hacer scroll al principio de la página

@@ -58,6 +58,15 @@
                             style="color: #dc3545;"></div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="mb-4 form-group">
+                        <label for="nombreEstampado" class="form-label fontTtitle">Precio Dolar</label>
+                        <input type="number" step="0.01" class="form-control btnInput" name="imputPrecioTamañoEstampado"
+                            id="inputPrecioTamañoEstampado" oninput="validarPrecioTamañoEstampado();">
+                        <div id="mensajeErrorPrecioTamaño" class="mensajeErrorPrecioTamaño"
+                            style="color: #dc3545;"></div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="mb-4 form-group">
                         <label for="nombreEstampado" class="form-label fontTtitle">Total</label>
@@ -90,6 +99,7 @@
                     <td scope="col" class="camposListar">Tipo</td>
                     <td scope="col" class="camposListar">Precio tamaño</td>
                     <td scope="col" class="camposListar">Precio tipo</td>
+                    <td scope="col" class="camposListar">Precio Dolar</td>
                     <td scope="col" class="camposListar">Total</td>
                     <td scope="col" class="text-center camposListar" style="width: 100px;">Acciones</td>
                 </tr>
